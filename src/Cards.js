@@ -71,7 +71,7 @@ class Cards extends React.Component {
                                 </div>
                             </div>
                         </li>
-                        <div className="container__radios hidden">
+                        <div className="container__radios">
                             <div className="radio__color">
                                  <h4 className="radio__titles">Colores</h4>
 
@@ -147,7 +147,7 @@ class Cards extends React.Component {
                                 </div>
                             </div>
                         </li>
-                        <div className="container__fill hidden">
+                        <div className="container__fill">
                             <div className="fill__title--form fill__full-name">
                                 <label className="fill__label" for="fullName">Nombre completo
                                     <input className="block" id="fullName" type="text" value=""
@@ -214,7 +214,7 @@ class Cards extends React.Component {
                                 </div>
                             </div>
                         </li>
-                        <div className="share_btn--container hidden">
+                        <div className="share_btn--container">
                             <button className="btn__create-card" type="button"><i className="far fa-id-card share__icon"></i>Crea tarjeta</button>
                             <div className="twitter__hidden share__twitter">
                                 <div className="share__title">La tarjeta ha sido creada:</div> 
