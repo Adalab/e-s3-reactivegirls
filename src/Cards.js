@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
-import logo from './images/logo-card.svg';
-import logoAdalab from './images/logo-adalab.png';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import './App.css';
 
-class Cards extends React.Component {
+class Cards extends Component {
   render() {
 
     return (
     <div>
-        <header className="card__header"> 
-          <a href="index.html">
-            <div className="editor__logo">
-              <h1 className="tittle__hiden">Crea tu tarjeta de visita</h1>
-            </div>
-          </a>
-
-          <div className="logo__wild"></div>
-        </header>
+        <Header />
         <main className="page__main">
             <div className="container__card-editor">
                 <div className="btn__bar">
@@ -230,11 +222,8 @@ class Cards extends React.Component {
                 </ul>
             </form>
         </main>
-        <footer className="footer">
-            <div className="footer__copyright">Awesome profile-cards @2018</div> <a href="https://adalab.es/">
-              <div className="footer__logo"></div>
-            </a>
-        </footer>
+        <Footer />
+        
     </div>
 
     );
