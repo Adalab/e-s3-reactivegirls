@@ -4,31 +4,30 @@ class Design extends Component {
     render (){
         return(
             <fieldset className="form__design form__fieldset">
-            <li className="bar__menu-card">
-                <div className="wrapper__bar-menu">
-                    <div className="ico__bar"></div> 
-                    <i className="card-main__icon far fa-keyboard"></i>
-                    <div className="tex__ico-bar">Diseña</div>
-                    <div className="ico__arrow-menu">
-                    <i className="fas fa-chevron-down"></i>
+                <li className="bar__menu-card">
+                    <div className="wrapper__bar-menu">
+                        <div className="ico__bar"></div> 
+                        <i className="card-main__icon far fa-keyboard"></i>
+                        <div className="tex__ico-bar">Diseña</div>
+                        <div className="ico__arrow-menu">
+                            <i className="fas fa-chevron-down"></i>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <div className="container__radios">
-                <div className="radio__color">
-                     <h4 className="radio__titles">Colores</h4>
-
-                    <div className="container__radio-input">
-                        <label for="palet__color-1" className="input__label">
-                            <input id="palet__color-1" type="radio" value="1" name="optionscolor"
-                            className="radio__button--color" checked />
-                            <div className="palet__color-squares">
-                                <div className="color color-1"></div>
-                                <div className="color color-2"></div>
-                                <div className="color color-3"></div>
-                            </div>
-                        </label>
-                    </div>
+                </li>
+                <div className="container__radios">
+                    <div className="radio__color">
+                        <h4 className="radio__titles">Colores</h4>
+                        <div className="container__radio-input">
+                            <label for="palet__color-1" className="input__label">
+                                <input id="palet__color-1" type="radio" value="1" name="optionscolor"
+                                className="radio__button--color" checked />
+                                <div className="palet__color-squares">
+                                    <div className="color color-1"></div>
+                                    <div className="color color-2"></div>
+                                    <div className="color color-3"></div>
+                                </div>
+                            </label>
+                        </div>
                     <div className="container__radio-input">
                         <label for="palet__color-2" className="input__label">
                             <input id="palet__color-2" type="radio" value="2" name="optionscolor"
@@ -80,7 +79,6 @@ class Design extends Component {
             </div>
         </fieldset>
         );
-
     }
 }
 export default Design;

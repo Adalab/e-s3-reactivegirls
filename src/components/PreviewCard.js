@@ -4,16 +4,15 @@ import PContact from './PContact';
 import PPicture from './PPicture';
 import PTitle from './PTitle';
 
-
 class PreviewCard extends Component{
     render (){
         return(
             <div className="card__details">
-                    <PTitle />
-                    <PPicture />
-                   <PContact />
-                    <PSkills />
-                </div>
+                <PTitle />
+                <PPicture />
+                <PContact />
+                <PSkills />
+            </div>
         );
     }
 }
