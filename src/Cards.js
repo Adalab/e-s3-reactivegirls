@@ -8,21 +8,16 @@ import './App.css';
 
 class Cards extends Component {
   render() {
-
     return (
     <div>
         <Header />
         <main className="page__main">
             <Collapsibles />
             <CardViewer />
-
         </main>
         <Footer />
-        
     </div>
-
     );
   }
 }
-
 export default Cards;
