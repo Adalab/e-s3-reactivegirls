@@ -9,7 +9,7 @@ class Collapsibles extends Component {
       <form action="" method="get" className="container__form">
         <ul className="list__bar-menu">
           <Design />
-          <Fill />
+          <Fill skills={this.props.skills}/>
           <Share />
         </ul>
       </form>    
