@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 
 class Fill extends Component {
-    constructor (props) {
-       super(props);
-        this.handleKeyUp = this.handleKeyUp.bind(this);
-    }
-
-    handleKeyUp(event) {
-        this.setState({ name: event.target.value });
-      }
+    
 
   render() {
     return(<fieldset className="form__personal-data form__fieldset">
@@ -26,12 +19,12 @@ class Fill extends Component {
         <div className="fill__title--form fill__full-name">
             <label className="fill__label" htmlFor="fullName">Nombre completo
                 <input className="block" id="fullName" type="text" 
-                name="fullName" placeholder="Ej: Paquita Salas" onKeyUp={this.handleKeyUp} />
+                name="fullName" placeholder="Ej: Paquita Salas"  onKeyUp={this.props.handleKeyUp} />
             </label>
         </div>
         <div className="fill__title--form">
             <label className="fill__label" htmlFor="job">Puesto
-                <input className="block" id="job" type="text" name="job" placeholder="Ej: Front end Developer" onKeyUp={this.handleKeyUp}/>
+                <input className="block" id="job" type="text" name="job" placeholder="Ej: Front end Developer" value={this.props.job}  onKeyUp={this.props.handleKeyUp}/>
             </label>
         </div>
         <div className="event__example"></div>
@@ -51,25 +44,25 @@ class Fill extends Component {
             <div className="fill__title--form">
                 <label className="fill__label" htmlFor="email">Email
                     <input className="block info__details" id="email" type="email" 
-                    name="email" placeholder="Ej: psmanagement@gmail.com" onKeyUp={this.handleKeyUp}/>
+                    name="email" placeholder="Ej: psmanagement@gmail.com" value={this.props.email} onKeyUp={this.props.handleKeyUp}/>
                 </label>
             </div>
             <div className="fill__title--form">
                 <label className="fill__label" htmlFor="phone__number">Teléfono
                     <input className="block info__details" id="phone__number" type="tel"
-                    name="phone__number" placeholder="Ej: 666555666" onKeyUp={this.handleKeyUp}/>
+                    name="phone__number" placeholder="Ej: 666555666" value={this.props.phone} onKeyUp={this.props.handleKeyUp}/>
                 </label>
             </div>
             <div className="fill__title--form">
                 <label className="fill__label" htmlFor="linkedin__net">Linkedin
                     <input className="block info__details" id="linkedin__net" type="url"
-                    name="linkedin__net" placeholder="Ej: linkedin.com/paquita" onKeyUp={this.handleKeyUp}/>
+                    name="linkedin__net" placeholder="Ej: linkedin.com/paquita" value={this.props.linkedin}  onKeyUp={this.props.handleKeyUp}/>
                 </label>
             </div>
             <div className="fill__title--form">
                 <label className="fill__label" htmlFor="gitHub__net">GitHub
                     <input className="block info__details" id="gitHub__net" type="text"
-                    name="gitHub__net" placeholder="Ej: @paquita-salas" onKeyUp={this.handleKeyUp}/>
+                    name="gitHub__net" placeholder="Ej: @paquita-salas" value={this.props.github} onKeyUp={this.props.handleKeyUp}/>
                 </label>
             </div>
             <div className="form__skills-datacheckbox">
