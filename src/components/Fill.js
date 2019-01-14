@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
 class Fill extends Component {
+    constructor (props) {
+       super(props);
+        this.handleKeyUp = this.handleKeyUp.bind(this);
+    }
+
+    handleKeyUp(event) {
+        this.setState({ name: event.target.value });
+      }
 
   render() {
     return(<fieldset className="form__personal-data form__fieldset">
@@ -16,52 +24,52 @@ class Fill extends Component {
     </li>
     <div className="container__fill">
         <div className="fill__title--form fill__full-name">
-            <label className="fill__label" for="fullName">Nombre completo
-                <input className="block" id="fullName" type="text" value=""
-                name="fullName" placeholder="Ej: Paquita Salas" />
+            <label className="fill__label" htmlFor="fullName">Nombre completo
+                <input className="block" id="fullName" type="text" 
+                name="fullName" placeholder="Ej: Paquita Salas" onKeyUp={this.handleKeyUp} />
             </label>
         </div>
         <div className="fill__title--form">
-            <label className="fill__label" for="job">Puesto
-                <input className="block" id="job" type="text" value="" name="job" placeholder="Ej: Front end Developer" />
+            <label className="fill__label" htmlFor="job">Puesto
+                <input className="block" id="job" type="text" name="job" placeholder="Ej: Front end Developer" onKeyUp={this.handleKeyUp}/>
             </label>
         </div>
         <div className="event__example"></div>
         <div className="fill__title--form btn__add-img">
-            <label className="fill__label" for="btn__add-img">Imagen de Perfil
+            <label className="fill__label" htmlFor="btn__add-img">Imagen de Perfil
                 <div className="fill__add-img">
                     <input className="block" id="btn__add-img" type="file" 
                     name="btn__add-img" />
                     <button className="btn__img--false" type="button">Añadir imagen</button>
                     <div className="square__img">
-                        <img src="" className="square__img--content" />
+                        <img src="" className="square__img--content" alt=""/>
                     </div>
                 </div>
             </label>
         </div>
         <div className="form__contact-data">
             <div className="fill__title--form">
-                <label className="fill__label" for="email">Email
-                    <input className="block info__details" id="email" type="email" value=""
-                    name="email" placeholder="Ej: psmanagement@gmail.com" />
+                <label className="fill__label" htmlFor="email">Email
+                    <input className="block info__details" id="email" type="email" 
+                    name="email" placeholder="Ej: psmanagement@gmail.com" onKeyUp={this.handleKeyUp}/>
                 </label>
             </div>
             <div className="fill__title--form">
-                <label className="fill__label" for="phone__number">Teléfono
+                <label className="fill__label" htmlFor="phone__number">Teléfono
                     <input className="block info__details" id="phone__number" type="tel"
-                    value="" name="phone__number" placeholder="Ej: 666555666" />
+                    name="phone__number" placeholder="Ej: 666555666" onKeyUp={this.handleKeyUp}/>
                 </label>
             </div>
             <div className="fill__title--form">
-                <label className="fill__label" for="linkedin__net">Linkedin
+                <label className="fill__label" htmlFor="linkedin__net">Linkedin
                     <input className="block info__details" id="linkedin__net" type="url"
-                    value="" name="linkedin__net" placeholder="Ej: linkedin.com/paquita" />
+                    name="linkedin__net" placeholder="Ej: linkedin.com/paquita" onKeyUp={this.handleKeyUp}/>
                 </label>
             </div>
             <div className="fill__title--form">
-                <label className="fill__label" for="gitHub__net">GitHub
+                <label className="fill__label" htmlFor="gitHub__net">GitHub
                     <input className="block info__details" id="gitHub__net" type="text"
-                    value="" name="gitHub__net" placeholder="Ej: @paquita-salas" />
+                    name="gitHub__net" placeholder="Ej: @paquita-salas" onKeyUp={this.handleKeyUp}/>
                 </label>
             </div>
             <div className="form__skills-datacheckbox">

@@ -7,7 +7,7 @@ class CardViewer extends Component{
         return(
             <div className="container__card-editor">
                 <ButtonReset />
-                <PreviewCard />
+                <PreviewCard name={this.props.name}/>
             </div>
         );
     }

@@ -9,7 +9,7 @@ https://github.com/Adalab/e-s3-reactivegirls.
 
 ##Original Project: Awesome Profile Cards
 
-In this project we make a web application that allows us to create a personalized business card. On the website we can present our professional data and obtain a design view with this information.
+For this project we made a web application that allows users to create a personalized business card. Through the app we can introduce our professional information and dowmload a (design view with this information) professiona
 It will be an interactive web application created by the user and that he can use to create his own professional business cards.
 
 The application works by following these steps:

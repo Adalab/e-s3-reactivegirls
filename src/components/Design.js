@@ -18,9 +18,9 @@ class Design extends Component {
                     <div className="radio__color">
                         <h4 className="radio__titles">Colores</h4>
                         <div className="container__radio-input">
-                            <label for="palet__color-1" className="input__label">
+                            <label htmlFor="palet__color-1" className="input__label">
                                 <input id="palet__color-1" type="radio" value="1" name="optionscolor"
-                                className="radio__button--color" checked />
+                                className="radio__button--color" defaultChecked />
                                 <div className="palet__color-squares">
                                     <div className="color color-1"></div>
                                     <div className="color color-2"></div>
@@ -29,7 +29,7 @@ class Design extends Component {
                             </label>
                         </div>
                     <div className="container__radio-input">
-                        <label for="palet__color-2" className="input__label">
+                        <label htmlFor="palet__color-2" className="input__label">
                             <input id="palet__color-2" type="radio" value="2" name="optionscolor"
                             className="radio__button--color" />
                             <div className="palet__color-squares">
@@ -40,7 +40,7 @@ class Design extends Component {
                         </label>
                     </div>
                     <div className="container__radio-input">
-                        <label for="palet__color-3" className="input__label">
+                        <label htmlFor="palet__color-3" className="input__label">
                             <input id="palet__color-3" type="radio" value="3" name="optionscolor"
                             className="radio__button--color" />
                             <div className="palet__color-squares">
@@ -54,21 +54,21 @@ class Design extends Component {
                          <h4 className="radio__titles">Fuentes</h4>
 
                         <div className="container__radio-input">
-                            <label for="option__font-1" className="input__label">
+                            <label htmlFor="option__font-1" className="input__label">
                                 <input id="option__font-1" type="radio" className="typo__radio" value="1"
-                                name="optionsfont" checked />
+                                name="optionsfont" defaultChecked />
                                 <div className="typo-1">Ubuntu</div>
                             </label>
                         </div>
                         <div className="container__radio-input">
-                            <label for="radio__typo-2" className="input__label">
+                            <label htmlFor="radio__typo-2" className="input__label">
                                 <input id="option__font-2" type="radio" className="typo__radio" value="2"
                                 name="optionsfont" />
                                 <div className="typo-2">Comic Sans</div>
                             </label>
                         </div>
                         <div className="container__radio-input">
-                            <label for="radio__typo-3" className="input__label">
+                            <label htmlFor="radio__typo-3" className="input__label">
                                 <input id="option__font-3" type="radio" className="typo__radio" value="3"
                                 name="optionsfont"/>
                                 <div className="typo-3">Montserrat</div>
