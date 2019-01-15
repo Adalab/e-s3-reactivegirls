@@ -9,7 +9,7 @@ class Collapsibles extends Component {
       <form action="" method="get" className="container__form">
         <ul className="list__bar-menu">
           <Design />
-          <Fill handleKeyUp={this.props.handleKeyUp} skills={this.props.skills} name={this.props.name}/>
+          <Fill handleKeyUpJ={this.props.handleKeyUpJ} handleKeyUpN={this.props.handleKeyUpN} skills={this.props.skills} name={this.props.name} job={this.props.job}/>
           <Share />
         </ul>
       </form>    

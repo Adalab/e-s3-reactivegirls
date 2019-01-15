@@ -13,26 +13,28 @@ class App extends Component {
       job: "Front end developer",
       email: "",
       phone: "",
+      img: "",
       linkedin: "",
       github:""
     };
-     this.handleKeyUp = this.handleKeyUp.bind(this);
+     this.handleKeyUpN = this.handleKeyUpN.bind(this);
+     this.handleKeyUpJ = this.handleKeyUpJ.bind(this);
+
  }
 
- handleKeyUp(event) {
-     this.setState({ name: event.target.value });
-     console.log(event.target.value);
+  handleKeyUpN(event) {
+     this.setState({ name: event.currentTarget.value });
    }
+  handleKeyUpJ(event) {
+    this.setState({ job: event.currentTarget.value }); 
+  }
 
   render() {
 
     return (
-
-      <div>
          
-     <Cards skills={skills} handleKeyUp={this.handleKeyUp} name={this.state.name}/>
-     <div>{this.state.name}</div>
-     </div>
+     <Cards skills={skills} handleKeyUpN={this.handleKeyUpN} handleKeyUpJ={this.handleKeyUpJ} name={this.state.name} job={this.state.job}/>
+     
     );
   }
 }

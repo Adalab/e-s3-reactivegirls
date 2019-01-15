@@ -13,8 +13,8 @@ class Cards extends Component {
     <div>
         <Header />
         <main className="page__main">
-            <Collapsibles skills={this.props.skills} name={this.props.name} handleKeyUp={this.props.handleKeyUp}/>
-            <CardViewer name={this.props.name}/>
+            <Collapsibles skills={this.props.skills} name={this.props.name} job={this.props.job} handleKeyUpJ={this.props.handleKeyUpJ} handleKeyUpN={this.props.handleKeyUpN}/>
+            <CardViewer name={this.props.name} job={this.props.job}/>
         </main>
         <Footer />
     </div>
