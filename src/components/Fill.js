@@ -19,7 +19,7 @@ class Fill extends Component {
         <div className="fill__title--form fill__full-name">
             <label className="fill__label" htmlFor="fullName">Nombre completo
                 <input className="block" id="fullName" type="text" 
-                name="fullName" placeholder="Ej: Paquita Salas"  onKeyUp={this.props.handleKeyUp} />
+                name="fullName" placeholder="Ej: Paquita Salas"  onKeyUp={this.props.handleKeyUp} defaultValue={this.props.name}/>
             </label>
         </div>
         <div className="fill__title--form">
