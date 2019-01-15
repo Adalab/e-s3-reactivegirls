@@ -32,10 +32,9 @@ class Fill extends Component {
             <label className="fill__label" htmlFor="btn__add-img">Imagen de Perfil
                 <div className="fill__add-img">
                     <input className="block" id="btn__add-img" type="file" 
-                    name="btn__add-img" />
-                    <button className="btn__img--false" type="button">Añadir imagen</button>
-                    <div className="square__img">
-                        <img src="" className="square__img--content" alt=""/>
+                    name="btn__add-img" ref={this.props.fileInput} onChange={this.props.handleChangeFile}/>
+                    <button className="btn__img--false" type="button" onClick={this.props.fakeClick}>Añadir imagen</button>
+                    <div className="square__img" style={{backgroundImage: `url(${this.props.img})`}}>
                     </div>
                 </div>
             </label>
@@ -44,7 +43,7 @@ class Fill extends Component {
             <div className="fill__title--form">
                 <label className="fill__label" htmlFor="email">Email
                     <input className="block info__details" id="email" type="email" 
-                    name="email" placeholder="Ej: psmanagement@gmail.com" value={this.props.email} onKeyUp={this.props.handleKeyUp}/>
+                    name="email" placeholder="Ej: psmanagement@gmail.com" defaultValue={this.props.email} onKeyUp={this.props.handleKeyUpE}/>
                 </label>
             </div>
             <div className="fill__title--form">

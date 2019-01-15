@@ -8,9 +8,9 @@ class PreviewCard extends Component{
     render (){
         return(
             <div className="card__details">
-                <PTitle name={this.props.name} job={this.props.job}/>
-                <PPicture />
-                <PContact />
+                <PTitle name={this.props.name} job={this.props.job} />
+                <PPicture img={this.props.img} />
+                <PContact email={this.props.email} />
                 <PSkills />
             </div>
         );
