@@ -47,7 +47,7 @@ class Fill extends Component {
                 </label>
             </div>
             <div className="fill__title--form">
-                <label className="fill__label" htmlFor="phone__number">Teléfono
+                <label className="fill__label"htmlFor="phone__number">Teléfono
                     <input className="block info__details" id="phone__number" type="tel"
                     name="phone__number" placeholder="Ej: 666555666" defaultValue={this.props.phone} onKeyUp={this.props.handleKeyUpP}/>
                 </label>
