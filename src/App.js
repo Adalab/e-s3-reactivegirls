@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Cards from './Cards';
-
+import DefaultImage from './images/lobo.jpg';
 const skills=['HTML', 'CSS', 'Patata :|'];
 const fr = new FileReader();
 
@@ -15,7 +15,7 @@ class App extends Component {
         job: "Front end developer",
         email: "",
         phone: "",
-        img: "",
+        img: DefaultImage,
         linkedin: "",
         github:""
       }
