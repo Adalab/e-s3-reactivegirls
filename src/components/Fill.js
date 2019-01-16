@@ -49,19 +49,19 @@ class Fill extends Component {
             <div className="fill__title--form">
                 <label className="fill__label" htmlFor="phone__number">Teléfono
                     <input className="block info__details" id="phone__number" type="tel"
-                    name="phone__number" placeholder="Ej: 666555666" value={this.props.phone} onKeyUp={this.props.handleKeyUp}/>
+                    name="phone__number" placeholder="Ej: 666555666" defaultValue={this.props.phone} onKeyUp={this.props.handleKeyUpP}/>
                 </label>
             </div>
             <div className="fill__title--form">
                 <label className="fill__label" htmlFor="linkedin__net">Linkedin
                     <input className="block info__details" id="linkedin__net" type="url"
-                    name="linkedin__net" placeholder="Ej: linkedin.com/paquita" value={this.props.linkedin}  onKeyUp={this.props.handleKeyUp}/>
+                    name="linkedin__net" placeholder="Ej: linkedin.com/paquita" defaultValue={this.props.linkedin}  onKeyUp={this.props.handleKeyUpL}/>
                 </label>
             </div>
             <div className="fill__title--form">
                 <label className="fill__label" htmlFor="gitHub__net">GitHub
                     <input className="block info__details" id="gitHub__net" type="text"
-                    name="gitHub__net" placeholder="Ej: @paquita-salas" value={this.props.github} onKeyUp={this.props.handleKeyUp}/>
+                    name="gitHub__net" placeholder="Ej: @paquita-salas" defaultValue={this.props.github} onKeyUp={this.props.handleKeyUpG}/>
                 </label>
             </div>
             <div className="form__skills-datacheckbox">
