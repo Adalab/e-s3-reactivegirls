@@ -17,6 +17,8 @@ class CardViewer extends Component {
                     github={this.props.github}
 
                     img={this.props.img}
+                    cardData = {this.props.cardData}
+                    contactIcons ={this.props.contactIcons}
                 />
             </div>
         );

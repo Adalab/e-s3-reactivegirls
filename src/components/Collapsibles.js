@@ -8,7 +8,8 @@ class Collapsibles extends Component {
     return (
       <form action="" method="get" className="container__form">
         <ul className="list__bar-menu">
-          <Design />
+          <Design 
+            handleColourChange={this.props.handleColourChange}/>
           <Fill
             skillsApi={this.props.skillsApi}
             name={this.props.name}
@@ -29,7 +30,8 @@ class Collapsibles extends Component {
             handleChangeFile={this.props.handleChangeFile}
             fakeClick={this.props.fakeClick}
             img={this.props.img}
-            fileInput={this.props.fileInput} />
+            fileInput={this.props.fileInput} 
+            />
           <Share />
         </ul>
       </form>

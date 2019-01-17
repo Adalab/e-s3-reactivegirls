@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Design extends Component {
+
+
+    
+
     render (){
         return(
             <fieldset className="form__design form__fieldset">
@@ -20,7 +24,7 @@ class Design extends Component {
                         <div className="container__radio-input">
                             <label htmlFor="palet__color-1" className="input__label">
                                 <input id="palet__color-1" type="radio" value="1" name="optionscolor"
-                                className="radio__button--color" defaultChecked />
+                                className="radio__button--color" defaultChecked onChange={  this.props.handleColourChange}/>
                                 <div className="palet__color-squares">
                                     <div className="color color-1"></div>
                                     <div className="color color-2"></div>
@@ -31,7 +35,7 @@ class Design extends Component {
                     <div className="container__radio-input">
                         <label htmlFor="palet__color-2" className="input__label">
                             <input id="palet__color-2" type="radio" value="2" name="optionscolor"
-                            className="radio__button--color" />
+                            className="radio__button--color" onChange={  this.props.handleColourChange}/>
                             <div className="palet__color-squares">
                                 <div className="color color-4"></div>
                                 <div className="color color-5"></div>
@@ -42,7 +46,7 @@ class Design extends Component {
                     <div className="container__radio-input">
                         <label htmlFor="palet__color-3" className="input__label">
                             <input id="palet__color-3" type="radio" value="3" name="optionscolor"
-                            className="radio__button--color" />
+                            className="radio__button--color" onChange={  this.props.handleColourChange} />
                             <div className="palet__color-squares">
                                 <div className="color color-7"></div>
                                 <div className="color color-8"></div>

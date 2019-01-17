@@ -18,12 +18,17 @@ class App extends Component {
         img: DefaultImage,
         linkedin: "",
         github:"",
-        skills:[]
+        skills:[],
+        paletteValue: ""
       },
       skillsApi:[]
       
     };
+
+    this.cardData = React.createRef();
     this.fileInput = React.createRef();
+    this.contactIcons = React.createRef();
+    
 
     this.handleKeyUpN = this.handleKeyUpN.bind(this);
     this.handleKeyUpJ = this.handleKeyUpJ.bind(this);
@@ -36,8 +41,11 @@ class App extends Component {
     this.writeImage = this.writeImage.bind(this);
     this.handleChangeFile = this.handleChangeFile.bind(this);
 
+    this.handleColourChange = this.handleColourChange.bind(this);
+
      
  }
+
  
   //Name
   handleKeyUpN(event) {
@@ -92,10 +100,17 @@ class App extends Component {
     this.setState({ card: {...cardO, linkedin: event.currentTarget.value} });
   }
 
+  handleColourChange(e) {
+    const cardO = this.state.card
+    const radioValue = e.currentTarget.value;
+    this.setState({ card: {...cardO, paletteValue: radioValue}});
+
+
+  }
+
   getSkillsApi(){
     fetchSkills()
     .then(data => {
-      console.log(data);
       this.setState({
         skillsApi: data.skills
       });
@@ -105,6 +120,7 @@ class App extends Component {
 
   render() {
     this.getSkillsApi();
+
 
     return (
          
@@ -128,7 +144,14 @@ class App extends Component {
      handleChangeFile={this.handleChangeFile} 
      fakeClick={this.fakeClick} 
      img={this.state.card.img} 
-     fileInput={this.fileInput}/>
+     fileInput={this.fileInput}
+     cardData = {this.cardData}
+     contactIcons ={this.contactIcons}
+
+     handleColourChange={this.handleColourChange}
+     />
+
+
      
     );
   }

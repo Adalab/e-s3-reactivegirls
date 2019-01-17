@@ -34,7 +34,8 @@ class Cards extends Component {
             handleChangeFile={this.props.handleChangeFile}
             fakeClick={this.props.fakeClick}
             img={this.props.img}
-            fileInput={this.props.fileInput} />
+            fileInput={this.props.fileInput} 
+            handleColourChange={this.props.handleColourChange}/>
 
           <CardViewer
             skills={this.props.skills}
@@ -45,7 +46,9 @@ class Cards extends Component {
             linkedin={this.props.linkedin}
             github={this.props.github}
 
-            img={this.props.img} />
+            img={this.props.img} 
+            cardData = {this.props.cardData}
+            contactIcons ={this.props.contactIcons}/>
         </main>
         <Footer />
       </div>
