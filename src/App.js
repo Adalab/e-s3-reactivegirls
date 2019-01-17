@@ -19,7 +19,8 @@ class App extends Component {
         linkedin: "",
         github:"",
         skills:[],
-        paletteValue: ""
+        paletteValue: "",
+        typoValue: ""
       },
       skillsApi:[]
       
@@ -42,6 +43,8 @@ class App extends Component {
     this.handleChangeFile = this.handleChangeFile.bind(this);
 
     this.handleColourChange = this.handleColourChange.bind(this);
+    this.handleTypoChange = this.handleTypoChange.bind(this);
+ 
 
      
  }
@@ -104,8 +107,12 @@ class App extends Component {
     const cardO = this.state.card
     const radioValue = e.currentTarget.value;
     this.setState({ card: {...cardO, paletteValue: radioValue}});
+  }
 
-
+  handleTypoChange(e) {
+    const cardO = this.state.card
+    const radioValue = e.currentTarget.value;
+    this.setState({ card: {...cardO, typoValue: radioValue}});
   }
 
   getSkillsApi(){
@@ -149,6 +156,7 @@ class App extends Component {
      contactIcons ={this.contactIcons}
 
      handleColourChange={this.handleColourChange}
+     handleTypoChange={this.handleTypoChange}
      />
 
 

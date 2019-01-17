@@ -9,7 +9,8 @@ class Collapsibles extends Component {
       <form action="" method="get" className="container__form">
         <ul className="list__bar-menu">
           <Design 
-            handleColourChange={this.props.handleColourChange}/>
+            handleColourChange={this.props.handleColourChange}
+            handleTypoChange={this.props.handleTypoChange}/>
           <Fill
             skillsApi={this.props.skillsApi}
             name={this.props.name}

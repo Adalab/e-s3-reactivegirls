@@ -35,7 +35,9 @@ class Cards extends Component {
             fakeClick={this.props.fakeClick}
             img={this.props.img}
             fileInput={this.props.fileInput} 
-            handleColourChange={this.props.handleColourChange}/>
+
+            handleColourChange={this.props.handleColourChange}
+            handleTypoChange={this.props.handleTypoChange}/>
 
           <CardViewer
             skills={this.props.skills}

@@ -60,21 +60,21 @@ class Design extends Component {
                         <div className="container__radio-input">
                             <label htmlFor="option__font-1" className="input__label">
                                 <input id="option__font-1" type="radio" className="typo__radio" value="1"
-                                name="optionsfont" defaultChecked />
+                                name="optionsfont" defaultChecked onChange={  this.props.handleTypoChange}/>
                                 <div className="typo-1">Ubuntu</div>
                             </label>
                         </div>
                         <div className="container__radio-input">
                             <label htmlFor="radio__typo-2" className="input__label">
                                 <input id="option__font-2" type="radio" className="typo__radio" value="2"
-                                name="optionsfont" />
+                                name="optionsfont" onChange={  this.props.handleTypoChange}/>
                                 <div className="typo-2">Comic Sans</div>
                             </label>
                         </div>
                         <div className="container__radio-input">
                             <label htmlFor="radio__typo-3" className="input__label">
                                 <input id="option__font-3" type="radio" className="typo__radio" value="3"
-                                name="optionsfont"/>
+                                name="optionsfont" onChange={this.props.handleTypoChange}/>
                                 <div className="typo-3">Montserrat</div>
                             </label>
                         </div>
