@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Cards from './Cards';
 import DefaultImage from './images/lobo.jpg';
+import {fetchSkills} from './services/GetSkills';
 const fr = new FileReader();
 
 class App extends Component {
@@ -92,8 +93,7 @@ class App extends Component {
   }
 
   getSkillsApi(){
-    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-    .then(response => response.json())
+    fetchSkills()
     .then(data => {
       console.log(data);
       this.setState({
