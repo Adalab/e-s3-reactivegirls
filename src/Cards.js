@@ -14,13 +14,14 @@ class Cards extends Component {
         <Header />
         <main className="page__main">
           <Collapsibles
-            skills={this.props.skills}
+            skillsApi={this.props.skillsApi}
             name={this.props.name}
             job={this.props.job}
             email={this.props.email}
             phone={this.props.phone}
             linkedin={this.props.linkedin}
             github={this.props.github}
+
 
             handleKeyUpJ={this.props.handleKeyUpJ}
             handleKeyUpN={this.props.handleKeyUpN}

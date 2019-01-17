@@ -66,6 +66,23 @@ class Fill extends Component {
             </div>
             <div className="form__skills-datacheckbox">
                  <h4 className="fill__label title__skills">Habilidades (máximo 3)</h4>
+                 <div className="form__skills">
+                 {this.props.skillsApi.map(item=>{
+                      const idName=`skills-data-${item}`;
+                     return(
+                        <label htmlFor={idName}>
+                        <input 
+                            id={idName} 
+                            className="skills__checkbox" 
+                            type="checkbox" 
+                            defaultValue={item} 
+                            name={item}/>
+                            {item}
+                        </label>
+                     );    
+                })}
+                   
+                </div>
 
             </div>
         </div>
