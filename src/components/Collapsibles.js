@@ -10,7 +10,14 @@ class Collapsibles extends Component {
         <ul className="list__bar-menu">
           <Design 
             handleColourChange={this.props.handleColourChange}
-            handleTypoChange={this.props.handleTypoChange}/>
+            handleTypoChange={this.props.handleTypoChange}
+            paletteValue={this.props.paletteValue}
+            typoValue={this.props.typoValue}
+            
+            cardData = {this.props.cardData}
+            contactIcons ={this.props.contactIcons}
+            
+            />/>
           <Fill
             skillsApi={this.props.skillsApi}
             name={this.props.name}

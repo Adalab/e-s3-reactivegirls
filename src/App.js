@@ -103,6 +103,8 @@ class App extends Component {
     this.setState({ card: {...cardO, linkedin: event.currentTarget.value} });
   }
 
+  //Design
+
   handleColourChange(e) {
     const cardO = this.state.card
     const radioValue = e.currentTarget.value;
@@ -114,6 +116,8 @@ class App extends Component {
     const radioValue = e.currentTarget.value;
     this.setState({ card: {...cardO, typoValue: radioValue}});
   }
+
+  //Get skills from API(servicefolder)
 
   getSkillsApi(){
     fetchSkills()
@@ -132,6 +136,8 @@ class App extends Component {
     return (
          
      <Cards  
+
+     //user info
      handleKeyUpN={this.handleKeyUpN} 
      handleKeyUpJ={this.handleKeyUpJ} 
      handleKeyUpE={this.handleKeyUpE} 
@@ -148,15 +154,24 @@ class App extends Component {
      skills={this.state.card.skills}
      skillsApi={this.state.skillsApi}
 
+     //Image
      handleChangeFile={this.handleChangeFile} 
      fakeClick={this.fakeClick} 
      img={this.state.card.img} 
      fileInput={this.fileInput}
+
+    //Design
      cardData = {this.cardData}
      contactIcons ={this.contactIcons}
 
+     paletteValue={this.state.card.paletteValue}
+     typoValue={this.state.card.typoValue}
+
+
+
      handleColourChange={this.handleColourChange}
      handleTypoChange={this.handleTypoChange}
+
      />
 
 

@@ -3,9 +3,27 @@ import React, { Component } from 'react';
 class Design extends Component {
 
 
+
     
 
     render (){
+        //condicional: si en estado hay color 1 = pon la paleta 1 a los elementos card data, contact icon y skill tags. Y que quite el 2 y el 3 si están puestos.
+
+        //idem color2 y 3.n
+        // paletteValue={this.props.paletteValue}
+        // typoValue={this.props.typoValue}/>
+
+        if(this.props.paletteValue === 1) {
+            this.props.cardData.classList.add('card-data__color1');
+            this.props.cardData.classList.remove('card-data__color2', 'card-data__color3');
+        }
+
+        else if(this.props.paletteValue === 2) {
+            this.props.cardData.classList.add('card-data__color2');
+            this.props.cardData.classList.remove('card-data__color1', 'card-data__color3');
+        }
+
+
         return(
             <fieldset className="form__design form__fieldset">
                 <li className="bar__menu-card">
