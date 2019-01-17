@@ -52,7 +52,11 @@ class Cards extends Component {
 
             img={this.props.img} 
             cardData = {this.props.cardData}
-            contactIcons ={this.props.contactIcons}/>
+            contactIcons ={this.props.contactIcons}
+            colourClass={this.props.colourClass}
+            handleColourP ={this.props.handleColourP}
+            />
+            
         </main>
         <Footer />
       </div>

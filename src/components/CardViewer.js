@@ -19,6 +19,8 @@ class CardViewer extends Component {
                     img={this.props.img}
                     cardData = {this.props.cardData}
                     contactIcons ={this.props.contactIcons}
+                    colourClass={this.props.colourClass}
+                    handleColourP ={this.props.handleColourP}
                 />
             </div>
         );

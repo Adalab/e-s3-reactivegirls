@@ -19,8 +19,12 @@ class App extends Component {
         linkedin: "",
         github:"",
         skills:[],
-        paletteValue: "",
-        typoValue: ""
+        paletteValue: "1",
+        typoValue: "2"
+      },
+      classes:{
+        colourClass: "",
+        typoClass: ""
       },
       skillsApi:[]
       
@@ -37,6 +41,7 @@ class App extends Component {
     this.handleKeyUpP = this.handleKeyUpP.bind(this);
     this.handleKeyUpL = this.handleKeyUpL.bind(this);
     this.handleKeyUpG = this.handleKeyUpG.bind(this);
+    
 
     this.fakeClick = this.fakeClick.bind(this);
     this.writeImage = this.writeImage.bind(this);
@@ -44,11 +49,23 @@ class App extends Component {
 
     this.handleColourChange = this.handleColourChange.bind(this);
     this.handleTypoChange = this.handleTypoChange.bind(this);
- 
+    this.handleColourP = this.handleColourP.bind(this);
 
      
  }
 
+  handleColourP(){
+    const palette = this.state.card.paletteValue;
+    const classesO = this.state.classes;
+    // if(palette === "1"){
+    //   this.setState({classes: {...classesO, colourClass: `card-data__color${palette}`}})
+    // } 
+    // else if (palette === "2"){
+    //   this.setState({classes: {...classesO, colourClass: `card-data__color${palette}`}})
+    // } else {
+    //   this.setState({classes: {...classesO, colourClass: `card-data__color${palette}`}})
+    // }
+  }
  
   //Name
   handleKeyUpN(event) {
@@ -132,7 +149,6 @@ class App extends Component {
   render() {
     this.getSkillsApi();
 
-
     return (
          
      <Cards  
@@ -171,6 +187,8 @@ class App extends Component {
 
      handleColourChange={this.handleColourChange}
      handleTypoChange={this.handleTypoChange}
+     colourClass={this.state.classes.colourClass}
+     handleColourP ={this.handleColourP}
 
      />
 

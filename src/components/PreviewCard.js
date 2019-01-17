@@ -11,7 +11,9 @@ class PreviewCard extends Component {
                 <PTitle 
                 name={this.props.name} 
                 job={this.props.job} 
-                cardData = {this.props.cardData}/>
+                cardData = {this.props.cardData}
+                colourClass={this.props.colourClass}
+                handleColourP ={this.props.handleColourP}/>
                 
                 <PPicture img={this.props.img} />
                 <PContact
