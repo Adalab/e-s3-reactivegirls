@@ -10,7 +10,7 @@ class Collapsibles extends Component {
         <ul className="list__bar-menu">
           <Design />
           <Fill
-            skills={this.props.skills}
+            skillsApi={this.props.skillsApi}
             name={this.props.name}
             job={this.props.job}
             email={this.props.email}

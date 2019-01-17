@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Cards from './Cards';
 import DefaultImage from './images/lobo.jpg';
-const skills=['HTML', 'CSS', 'Patata :|'];
 const fr = new FileReader();
 
 class App extends Component {
@@ -17,8 +16,10 @@ class App extends Component {
         phone: "",
         img: DefaultImage,
         linkedin: "",
-        github:""
-      }
+        github:"",
+        skills:[]
+      },
+      skillsApi:[]
       
     };
     this.fileInput = React.createRef();
@@ -90,12 +91,24 @@ class App extends Component {
     this.setState({ card: {...cardO, linkedin: event.currentTarget.value} });
   }
 
+  getSkillsApi(){
+    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      this.setState({
+        skillsApi: data.skills
+      });
+      })
+  }
+
 
   render() {
+    this.getSkillsApi();
 
     return (
          
-     <Cards skills={skills} 
+     <Cards  
      handleKeyUpN={this.handleKeyUpN} 
      handleKeyUpJ={this.handleKeyUpJ} 
      handleKeyUpE={this.handleKeyUpE} 
@@ -109,6 +122,8 @@ class App extends Component {
      phone={this.state.card.phone} 
      linkedin={this.state.card.linkedin} 
      github={this.state.card.github}
+     skills={this.state.card.skills}
+     skillsApi={this.state.skillsApi}
 
      handleChangeFile={this.handleChangeFile} 
      fakeClick={this.fakeClick} 
