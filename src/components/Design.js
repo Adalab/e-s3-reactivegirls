@@ -7,22 +7,7 @@ class Design extends Component {
     
 
     render (){
-        //condicional: si en estado hay color 1 = pon la paleta 1 a los elementos card data, contact icon y skill tags. Y que quite el 2 y el 3 si están puestos.
-
-        //idem color2 y 3.n
-        // paletteValue={this.props.paletteValue}
-        // typoValue={this.props.typoValue}/>
-
-        if(this.props.paletteValue === 1) {
-            this.props.cardData.classList.add('card-data__color1');
-            this.props.cardData.classList.remove('card-data__color2', 'card-data__color3');
-        }
-
-        else if(this.props.paletteValue === 2) {
-            this.props.cardData.classList.add('card-data__color2');
-            this.props.cardData.classList.remove('card-data__color1', 'card-data__color3');
-        }
-
+      
 
         return(
             <fieldset className="form__design form__fieldset">
@@ -42,7 +27,7 @@ class Design extends Component {
                         <div className="container__radio-input">
                             <label htmlFor="palet__color-1" className="input__label">
                                 <input id="palet__color-1" type="radio" value="1" name="optionscolor"
-                                className="radio__button--color" defaultChecked onChange={  this.props.handleColourChange}/>
+                                className="radio__button--color" defaultChecked={(this.props.paletteValue === 1) ? true : false} onChange={  this.props.handleColourChange}/>
                                 <div className="palet__color-squares">
                                     <div className="color color-1"></div>
                                     <div className="color color-2"></div>
@@ -53,7 +38,7 @@ class Design extends Component {
                     <div className="container__radio-input">
                         <label htmlFor="palet__color-2" className="input__label">
                             <input id="palet__color-2" type="radio" value="2" name="optionscolor"
-                            className="radio__button--color" onChange={  this.props.handleColourChange}/>
+                            className="radio__button--color" defaultChecked={(this.props.paletteValue === 2) ? true : false}onChange={  this.props.handleColourChange}/>
                             <div className="palet__color-squares">
                                 <div className="color color-4"></div>
                                 <div className="color color-5"></div>
@@ -64,7 +49,7 @@ class Design extends Component {
                     <div className="container__radio-input">
                         <label htmlFor="palet__color-3" className="input__label">
                             <input id="palet__color-3" type="radio" value="3" name="optionscolor"
-                            className="radio__button--color" onChange={  this.props.handleColourChange} />
+                            className="radio__button--color" defaultChecked={(this.props.paletteValue === 3) ? true : false}onChange={  this.props.handleColourChange} />
                             <div className="palet__color-squares">
                                 <div className="color color-7"></div>
                                 <div className="color color-8"></div>

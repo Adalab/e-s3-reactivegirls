@@ -39,7 +39,8 @@ class Cards extends Component {
             handleColourChange={this.props.handleColourChange}
             handleTypoChange={this.props.handleTypoChange}
             paletteValue={this.props.paletteValue}
-            typoValue={this.props.typoValue}/>
+            typoValue={this.props.typoValue}
+            />
 
           <CardViewer
             skills={this.props.skills}
@@ -55,6 +56,9 @@ class Cards extends Component {
             contactIcons ={this.props.contactIcons}
             colourClass={this.props.colourClass}
             handleColourP ={this.props.handleColourP}
+
+            paletteValue={this.props.paletteValue}
+            typoValue={this.props.typoValue}
             />
             
         </main>

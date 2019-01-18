@@ -19,8 +19,8 @@ class App extends Component {
         linkedin: "",
         github:"",
         skills:[],
-        paletteValue: "1",
-        typoValue: "2"
+        paletteValue: 3,
+        typoValue: 2
       },
       classes:{
         colourClass: "",
@@ -49,23 +49,12 @@ class App extends Component {
 
     this.handleColourChange = this.handleColourChange.bind(this);
     this.handleTypoChange = this.handleTypoChange.bind(this);
-    this.handleColourP = this.handleColourP.bind(this);
+
 
      
  }
 
-  handleColourP(){
-    const palette = this.state.card.paletteValue;
-    const classesO = this.state.classes;
-    // if(palette === "1"){
-    //   this.setState({classes: {...classesO, colourClass: `card-data__color${palette}`}})
-    // } 
-    // else if (palette === "2"){
-    //   this.setState({classes: {...classesO, colourClass: `card-data__color${palette}`}})
-    // } else {
-    //   this.setState({classes: {...classesO, colourClass: `card-data__color${palette}`}})
-    // }
-  }
+ 
  
   //Name
   handleKeyUpN(event) {
@@ -124,13 +113,13 @@ class App extends Component {
 
   handleColourChange(e) {
     const cardO = this.state.card
-    const radioValue = e.currentTarget.value;
+    const radioValue = parseInt(e.currentTarget.value);
     this.setState({ card: {...cardO, paletteValue: radioValue}});
   }
 
   handleTypoChange(e) {
     const cardO = this.state.card
-    const radioValue = e.currentTarget.value;
+    const radioValue = parseInt(e.currentTarget.value);
     this.setState({ card: {...cardO, typoValue: radioValue}});
   }
 
@@ -188,7 +177,7 @@ class App extends Component {
      handleColourChange={this.handleColourChange}
      handleTypoChange={this.handleTypoChange}
      colourClass={this.state.classes.colourClass}
-     handleColourP ={this.handleColourP}
+    
 
      />
 
