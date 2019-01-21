@@ -1,27 +1,29 @@
 import React, { Component } from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Home from './Home';
 import Cards from './Cards';
 import DefaultImage from './images/lobo.jpg';
-import {fetchSkills} from './services/GetSkills';
+import { fetchSkills } from './services/GetSkills';
 const fr = new FileReader();
 
 class App extends Component {
 
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
-      card:{
+      card: {
         name: "Nombre y apellidos",
         job: "Front end developer",
         email: "",
         phone: "",
         img: DefaultImage,
         linkedin: "",
-        github:"",
-        skills:[]
+        github: "",
+        skills: []
       },
-      skillsApi:[]
-      
+      skillsApi: []
+
     };
     this.fileInput = React.createRef();
 
@@ -36,35 +38,35 @@ class App extends Component {
     this.writeImage = this.writeImage.bind(this);
     this.handleChangeFile = this.handleChangeFile.bind(this);
 
-     
- }
- 
+
+  }
+
   //Name
   handleKeyUpN(event) {
     const cardO = this.state.card
-    this.setState({ card: {...cardO, name: event.currentTarget.value} });
+    this.setState({ card: { ...cardO, name: event.currentTarget.value } });
   }
 
   //Job
   handleKeyUpJ(event) {
     const cardO = this.state.card
-    this.setState({ card: {...cardO, job: event.currentTarget.value} }); 
+    this.setState({ card: { ...cardO, job: event.currentTarget.value } });
   }
 
   //Loading image
-  fakeClick(){
+  fakeClick() {
     this.fileInput.current.click();
   }
 
-  writeImage(){
+  writeImage() {
     const url = fr.result;
     const cardO = this.state.card
     this.setState({
-      card: {...cardO, img: url}
+      card: { ...cardO, img: url }
     });
   }
 
-  handleChangeFile(event){
+  handleChangeFile(event) {
     const myFile = event.currentTarget.files[0];
     fr.addEventListener('load', this.writeImage);
     fr.readAsDataURL(myFile);
@@ -73,32 +75,32 @@ class App extends Component {
   //Email
   handleKeyUpE(event) {
     const cardO = this.state.card
-    this.setState({ card: {...cardO, email: event.currentTarget.value} });
+    this.setState({ card: { ...cardO, email: event.currentTarget.value } });
   }
 
   //Phone
   handleKeyUpP(event) {
     const cardO = this.state.card
-    this.setState({ card: {...cardO, phone: event.currentTarget.value} });
+    this.setState({ card: { ...cardO, phone: event.currentTarget.value } });
   }
   //GitHub
   handleKeyUpG(event) {
     const cardO = this.state.card
-    this.setState({ card: {...cardO, github: event.currentTarget.value} });
+    this.setState({ card: { ...cardO, github: event.currentTarget.value } });
   }
   //Linkedin
   handleKeyUpL(event) {
     const cardO = this.state.card
-    this.setState({ card: {...cardO, linkedin: event.currentTarget.value} });
+    this.setState({ card: { ...cardO, linkedin: event.currentTarget.value } });
   }
 
-  getSkillsApi(){
+  getSkillsApi() {
     fetchSkills()
-    .then(data => {
-      console.log(data);
-      this.setState({
-        skillsApi: data.skills
-      });
+      .then(data => {
+        console.log(data);
+        this.setState({
+          skillsApi: data.skills
+        });
       })
   }
 
@@ -107,29 +109,35 @@ class App extends Component {
     this.getSkillsApi();
 
     return (
-         
-     <Cards  
-     handleKeyUpN={this.handleKeyUpN} 
-     handleKeyUpJ={this.handleKeyUpJ} 
-     handleKeyUpE={this.handleKeyUpE} 
-     handleKeyUpP={this.handleKeyUpP} 
-     handleKeyUpL={this.handleKeyUpL} 
-     handleKeyUpG={this.handleKeyUpG} 
+      <section>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/cards" component={Cards} />
+        </Switch>
 
-     name={this.state.card.name} 
-     job={this.state.card.job} 
-     email={this.state.card.email} 
-     phone={this.state.card.phone} 
-     linkedin={this.state.card.linkedin} 
-     github={this.state.card.github}
-     skills={this.state.card.skills}
-     skillsApi={this.state.skillsApi}
 
-     handleChangeFile={this.handleChangeFile} 
-     fakeClick={this.fakeClick} 
-     img={this.state.card.img} 
-     fileInput={this.fileInput}/>
-     
+        <Cards
+          handleKeyUpN={this.handleKeyUpN}
+          handleKeyUpJ={this.handleKeyUpJ}
+          handleKeyUpE={this.handleKeyUpE}
+          handleKeyUpP={this.handleKeyUpP}
+          handleKeyUpL={this.handleKeyUpL}
+          handleKeyUpG={this.handleKeyUpG}
+
+          name={this.state.card.name}
+          job={this.state.card.job}
+          email={this.state.card.email}
+          phone={this.state.card.phone}
+          linkedin={this.state.card.linkedin}
+          github={this.state.card.github}
+          skills={this.state.card.skills}
+          skillsApi={this.state.skillsApi}
+
+          handleChangeFile={this.handleChangeFile}
+          fakeClick={this.fakeClick}
+          img={this.state.card.img}
+          fileInput={this.fileInput} />
+      </section>
     );
   }
 }
