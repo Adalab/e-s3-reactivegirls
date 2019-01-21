@@ -9,11 +9,29 @@ class App extends Component {
 
   constructor (props) {
     super(props);
-    this.state = {
-      card: this.getLastSearch(),
-      skillsApi:[]
-      
+    this.defaultCard = {
+      skills: []
     };
+
+    this.state = {
+      skillsApi: [],
+      card: {
+      name: "Nombre y apellidos",
+      job: "Front end developer",
+      email: "",
+      phone: "",
+      img: DefaultImage,
+      linkedin: "",
+      github:"",
+      skills:[],
+      paletteValue: 1,
+      typoValue: 2
+      
+      }
+    };
+
+    this.addSkillorNot = this.addSkillorNot.bind(this);
+ 
 
     this.cardData = React.createRef();
     this.fileInput = React.createRef();
@@ -35,50 +53,42 @@ class App extends Component {
     this.handleColourChange = this.handleColourChange.bind(this);
     this.handleTypoChange = this.handleTypoChange.bind(this);
 
-    this.startLocalStorage = this.startLocalStorage.bind(this);
+    // this.startLocalStorage = this.startLocalStorage.bind(this);
     this.addSkillorNot = this.addSkillorNot.bind(this);
 
  }
   //LocalStorage
-  startLocalStorage(){
-    const value = this.state.cards;
-    this.saveLastSearch(value);
-  }
 
-  saveLastSearch(value){
-    localStorage.setItem('backup', JSON.stringify(value))
+  componentDidMount(){
+    this.getSkillsApi();
+    this.getLastSearch();
   }
 
   getLastSearch(){
-  const lastSearch = (localStorage.getItem('backup') !== null) ? JSON.parse(localStorage.getItem('backup')) : {
-      name: "Nombre y apellidos",
-      job: "Front end developer",
-      email: "",
-      phone: "",
-      img: DefaultImage,
-      linkedin: "",
-      github:"",
-      skills:[],
-      paletteValue: 1,
-      typoValue: 2
-    }
-    console.log(localStorage.getItem('backup'))
-    return lastSearch;
-  }
+    const lastSearch = (localStorage.getItem('backup') !== null) ? JSON.parse(localStorage.getItem('backup')) : this.defaultCard;
+    this.setState({
+      card: lastSearch
+    })
 
- 
+      }
+
+  saveCard(myCard) {
+    localStorage.setItem('reactiGirls', JSON.stringify(myCard));
+  }
+    
+
   //Name
   handleKeyUpN(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, name: event.currentTarget.value} });
-    this.startLocalStorage()
+    this.saveCard()
   }
 
   //Job
   handleKeyUpJ(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, job: event.currentTarget.value} });
-    this.startLocalStorage()
+    this.saveCard()
   }
 
   //Loading image
@@ -92,7 +102,7 @@ class App extends Component {
     this.setState({
       card: {...cardO, img: url}
     });
-    this.startLocalStorage()
+    this.saveCard()
   }
 
   handleChangeFile(event){
@@ -105,26 +115,26 @@ class App extends Component {
   handleKeyUpE(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, email: event.currentTarget.value} });
-    this.startLocalStorage()
+    this.saveCard()
   }
 
   //Phone
   handleKeyUpP(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, phone: event.currentTarget.value} });
-    this.startLocalStorage()
+    this.saveCard()
   }
   //GitHub
   handleKeyUpG(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, github: event.currentTarget.value} });
-    this.startLocalStorage()
+    this.saveCard()
   }
   //Linkedin
   handleKeyUpL(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, linkedin: event.currentTarget.value} });
-    this.startLocalStorage();
+    this.saveCard()
   }
 
   //Design
@@ -133,14 +143,14 @@ class App extends Component {
     const cardO = this.state.card
     const radioValue = parseInt(e.currentTarget.value);
     this.setState({ card: {...cardO, paletteValue: radioValue}});
-    this.startLocalStorage()
+    this.saveCard()
   }
 
   handleTypoChange(e) {
     const cardO = this.state.card
     const radioValue = parseInt(e.currentTarget.value);
     this.setState({ card: {...cardO, typoValue: radioValue}});
-    this.startLocalStorage()
+    this.saveCard()
   }
 
   //Get skills from API(servicefolder)
@@ -156,30 +166,41 @@ class App extends Component {
 
    //Checking Only 3 Skills
    addSkillorNot(e){
-    const currentSkill = this.state.card.skills.slice(0);
+    const {card} = this.state;
+    const currentSkills = card.skills.slice(0);
     const check = e.currentTarget;
     const newSkill = e.currentTarget.value;
     const isChecked = check.checked;
-   
-      if(currentSkill.length < 3 && isChecked){
-        currentSkill.push(newSkill);
-        const newCard = {...this.state.card, skills: currentSkill}
-        this.setState({
-          card: newCard
-        });
-      } else {
-        check.checked = false;
-        if(currentSkill.indexOf(newSkill) > -1){
-          currentSkill.splice(currentSkill.indexOf(newSkill), 1);
-        } else {
-          
-        }
+
+
+    if (currentSkills.length < 3 && isChecked) {
+      
+      // Está marcado y hay menos de 3 skills
+      currentSkills.push(newSkill);
+    
+    } else {
+      
+      // No está marcado o hay 3 skills o más
+      check.checked = false;
+      // si existe tengo que borrarlo
+      const index = currentSkills.indexOf(newSkill);
+      if (index > -1) {
+        currentSkills.splice(index, 1);
       } 
+    
+    }
+
+    const newCard = {...card, skills: currentSkills};
+    this.saveCard(newCard);
+    this.setState({
+      card: newCard
+    });
   }
+  
 
 
   render() {
-    this.getSkillsApi();
+    // this.getSkillsApi();
 
     return (
          
