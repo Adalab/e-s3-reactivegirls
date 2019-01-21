@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import Home from './Home';
 import Cards from './Cards';
+import './App.css';
 import DefaultImage from './images/lobo.jpg';
 import {fetchSkills} from './services/GetSkills';
 const fr = new FileReader();
@@ -92,43 +94,49 @@ class App extends Component {
     this.setState({ card: {...cardO, linkedin: event.currentTarget.value} });
   }
 
-  getSkillsApi(){
-    fetchSkills()
-    .then(data => {
-      console.log(data);
-      this.setState({
-        skillsApi: data.skills
-      });
-      })
-  }
+  // getSkillsApi(){
+  //   fetchSkills()
+  //   .then(data => {
+  //     console.log(data);
+  //     this.setState({
+  //       skillsApi: data.skills
+  //     });
+  //     })
+  // }
 
 
   render() {
-    this.getSkillsApi();
+    // this.getSkillsApi();
 
     return (
-         
-     <Cards  
-     handleKeyUpN={this.handleKeyUpN} 
-     handleKeyUpJ={this.handleKeyUpJ} 
-     handleKeyUpE={this.handleKeyUpE} 
-     handleKeyUpP={this.handleKeyUpP} 
-     handleKeyUpL={this.handleKeyUpL} 
-     handleKeyUpG={this.handleKeyUpG} 
+      <React.Fragment>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/cards" component={Cards} />
+        </Switch>
+        <Cards  
+          handleKeyUpN={this.handleKeyUpN} 
+          handleKeyUpJ={this.handleKeyUpJ} 
+          handleKeyUpE={this.handleKeyUpE} 
+          handleKeyUpP={this.handleKeyUpP} 
+          handleKeyUpL={this.handleKeyUpL} 
+          handleKeyUpG={this.handleKeyUpG} 
 
-     name={this.state.card.name} 
-     job={this.state.card.job} 
-     email={this.state.card.email} 
-     phone={this.state.card.phone} 
-     linkedin={this.state.card.linkedin} 
-     github={this.state.card.github}
-     skills={this.state.card.skills}
-     skillsApi={this.state.skillsApi}
+          name={this.state.card.name} 
+          job={this.state.card.job} 
+          email={this.state.card.email} 
+          phone={this.state.card.phone} 
+          linkedin={this.state.card.linkedin} 
+          github={this.state.card.github}
+          skills={this.state.card.skills}
+          skillsApi={this.state.skillsApi}
 
-     handleChangeFile={this.handleChangeFile} 
-     fakeClick={this.fakeClick} 
-     img={this.state.card.img} 
-     fileInput={this.fileInput}/>
+          handleChangeFile={this.handleChangeFile} 
+          fakeClick={this.fakeClick} 
+          img={this.state.card.img} 
+          fileInput={this.fileInput}
+         />
+      </React.Fragment>
      
     );
   }

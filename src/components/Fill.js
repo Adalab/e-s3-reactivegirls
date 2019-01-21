@@ -4,30 +4,32 @@ class Fill extends Component {
     
 
   render() {
-    return(<fieldset className="form__personal-data form__fieldset">
-    <li className="bar__menu-card">
+    return(
+    <fieldset className="form__personal-data form__fieldset">
+      <li className="bar__menu-card">
         <div className="wrapper__bar-menu">
-            <div className="ico__bar"></div> <i className="card-main__icon far fa-object-ungroup"></i>
-
-            <div className="tex__ico-bar">Rellena</div>
-            <div className="ico__arrow-menu"><i className="fas fa-chevron-down"></i>
-
-            </div>
+          <div className="ico__bar">
+          </div> <i className="card-main__icon far fa-object-ungroup"></i>
+          <div className="tex__ico-bar">Rellena
+          </div>
+          <div className="ico__arrow-menu"><i className="fas fa-chevron-down"></i>
+          </div>
         </div>
-    </li>
-    <div className="container__fill">
+      </li>
+      <div className="container__fill">
         <div className="fill__title--form fill__full-name">
-            <label className="fill__label" htmlFor="fullName">Nombre completo
-                <input className="block" id="fullName" type="text" 
+          <label className="fill__label" htmlFor="fullName">Nombre completo
+            <input className="block" id="fullName" type="text" 
                 name="fullName" placeholder="Ej: Paquita Salas"  onKeyUp={this.props.handleKeyUpN} defaultValue={this.props.name}/>
-            </label>
+          </label>
         </div>
         <div className="fill__title--form">
             <label className="fill__label" htmlFor="job">Puesto
                 <input className="block" id="job" type="text" name="job" placeholder="Ej: Front end Developer" defaultValue={this.props.job} onKeyUp={this.props.handleKeyUpJ}/>
             </label>
         </div>
-        <div className="event__example"></div>
+        <div className="event__example">
+        </div>
         <div className="fill__title--form btn__add-img">
             <label className="fill__label" htmlFor="btn__add-img">Imagen de Perfil
                 <div className="fill__add-img">
@@ -67,20 +69,20 @@ class Fill extends Component {
             <div className="form__skills-datacheckbox">
                  <h4 className="fill__label title__skills">Habilidades (máximo 3)</h4>
                  <div className="form__skills">
-                 {this.props.skillsApi.map(item=>{
-                      const idName=`skills-data-${item}`;
-                     return(
-                        <label htmlFor={idName}>
-                        <input 
-                            id={idName} 
-                            className="skills__checkbox" 
-                            type="checkbox" 
-                            defaultValue={item} 
-                            name={item}/>
-                            {item}
-                        </label>
-                     );    
-                })}
+                    {/* {this.props.skillsApi.map(item=>{
+                        const idName=`skills-data-${item}`;
+                          return(
+                              <label htmlFor={idName}>
+                              <input
+                                  id={idName}
+                                  className="skills__checkbox"
+                                  type="checkbox"
+                                  defaultValue={item}
+                                  name={item}
+                                /> {item}
+                              </label>
+                              );
+                          })} */}
                    
                 </div>
 

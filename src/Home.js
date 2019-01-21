@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import logo from './images/logo-card.svg';
 import logoAdalab from './images/logo-adalab.png';
 import './App.css';
-import Cards from './Cards';
+
 
 class Home extends React.Component {
   render() {
@@ -31,9 +32,10 @@ class Home extends React.Component {
 
                   <div className="home__options--text">Comparte</div>
                 </li>
-              </ul> <a href="">
-                <div className="home__link">Comenzar</div>
-              </a>
+              </ul> 
+              <Link to="/Cards">
+                <button type="button"  className="home__link">Comenzar</button>
+              </Link>
 
             </main>
           </div>
