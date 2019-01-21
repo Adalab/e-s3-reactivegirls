@@ -12,24 +12,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      card: {
-        name: "Nombre y apellidos",
-        job: "Front end developer",
-        email: "",
-        phone: "",
-        img: DefaultImage,
-        linkedin: "",
-        github:"",
-        skills:[],
-        paletteValue: 3,
-        typoValue: 2
-      },
-      classes:{
-        colourClass: "",
-        typoClass: ""
-      },
-      skillsApi: []
-
+      card: this.getLastSearch(),
+      skillsApi:[]
+      
     };
 
     this.cardData = React.createRef();
@@ -53,9 +38,34 @@ class App extends Component {
     this.handleTypoChange = this.handleTypoChange.bind(this);
 
  }
+  //LocalStorage
+  componentWillUnmount(){
+    const value = this.state.cards;
+    this.saveLastSearch(value);
+  }
 
+  saveLastSearch(value){
+    localStorage.setItem('backup', JSON.stringify(value))
+  }
 
-
+  getLastSearch(){
+    const lastSearch = (localStorage.getItem('backup') !== null) ? JSON.parse(localStorage.getItem('backup')) : {
+      name: "Nombre y apellidos",
+      job: "Front end developer",
+      email: "",
+      phone: "",
+      img: DefaultImage,
+      linkedin: "",
+      github:"",
+      skills:[],
+      paletteValue: 1,
+      typoValue: 2
+    }
+    
+    
+    return lastSearch;
+  }
+ 
   //Name
   handleKeyUpN(event) {
     const cardO = this.state.card
@@ -139,50 +149,49 @@ class App extends Component {
     this.getSkillsApi();
 
     return (
-      <section>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/cards" component={Cards} />
-        </Switch>
+         
+     <Cards  
 
-        <Cards
+     //user info
+     handleKeyUpN={this.handleKeyUpN} 
+     handleKeyUpJ={this.handleKeyUpJ} 
+     handleKeyUpE={this.handleKeyUpE} 
+     handleKeyUpP={this.handleKeyUpP} 
+     handleKeyUpL={this.handleKeyUpL} 
+     handleKeyUpG={this.handleKeyUpG} 
 
-          //user info
-          handleKeyUpN={this.handleKeyUpN}
-          handleKeyUpJ={this.handleKeyUpJ}
-          handleKeyUpE={this.handleKeyUpE}
-          handleKeyUpP={this.handleKeyUpP}
-          handleKeyUpL={this.handleKeyUpL}
-          handleKeyUpG={this.handleKeyUpG}
+     name={this.state.card.name} 
+     job={this.state.card.job} 
+     email={this.state.card.email} 
+     phone={this.state.card.phone} 
+     linkedin={this.state.card.linkedin} 
+     github={this.state.card.github}
+     skills={this.state.card.skills}
+     skillsApi={this.state.skillsApi}
 
-          name={this.state.card.name}
-          job={this.state.card.job}
-          email={this.state.card.email}
-          phone={this.state.card.phone}
-          linkedin={this.state.card.linkedin}
-          github={this.state.card.github}
-          skills={this.state.card.skills}
-          skillsApi={this.state.skillsApi}
+     //Image
+     handleChangeFile={this.handleChangeFile} 
+     fakeClick={this.fakeClick} 
+     img={this.state.card.img} 
+     fileInput={this.fileInput}
 
-          //Image
-          handleChangeFile={this.handleChangeFile}
-          fakeClick={this.fakeClick}
-          img={this.state.card.img}
-          fileInput={this.fileInput}
+    //Design
+     cardData = {this.cardData}
+     contactIcons ={this.contactIcons}
 
-          //Design
-          cardData={this.cardData}
-          contactIcons={this.contactIcons}
+     paletteValue={this.state.card.paletteValue}
+     typoValue={this.state.card.typoValue}
 
-          paletteValue={this.state.card.paletteValue}
-          typoValue={this.state.card.typoValue}
 
-          handleColourChange={this.handleColourChange}
-          handleTypoChange={this.handleTypoChange}
-          colourClass={this.state.classes.colourClass}
-        />
 
-      </section>
+     handleColourChange={this.handleColourChange}
+     handleTypoChange={this.handleTypoChange}
+    
+
+     />
+
+
+     
     );
   }
 }
