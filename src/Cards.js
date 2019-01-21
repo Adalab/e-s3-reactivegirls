@@ -48,6 +48,7 @@ class Cards extends Component {
             skills={this.props.skills}
             name={this.props.name}
             job={this.props.job}
+            opacity={this.props.opacity}
             email={this.props.email}
             phone={this.props.phone}
             linkedin={this.props.linkedin}

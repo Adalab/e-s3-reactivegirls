@@ -11,15 +11,15 @@ class App extends Component {
     super(props);
     this.state = {
       card: this.getLastSearch(),
-      skillsApi:[]
-      
+      skillsApi:[],
+      opacity: true
     };
+    
 
     this.cardData = React.createRef();
     this.fileInput = React.createRef();
     this.contactIcons = React.createRef();
     
-
     this.handleKeyUpN = this.handleKeyUpN.bind(this);
     this.handleKeyUpJ = this.handleKeyUpJ.bind(this);
     this.handleKeyUpE = this.handleKeyUpE.bind(this);
@@ -27,7 +27,6 @@ class App extends Component {
     this.handleKeyUpL = this.handleKeyUpL.bind(this);
     this.handleKeyUpG = this.handleKeyUpG.bind(this);
     
-
     this.fakeClick = this.fakeClick.bind(this);
     this.writeImage = this.writeImage.bind(this);
     this.handleChangeFile = this.handleChangeFile.bind(this);
@@ -62,7 +61,6 @@ class App extends Component {
       paletteValue: 1,
       typoValue: 2
     }
-    console.log(localStorage.getItem('backup'))
     return lastSearch;
   }
 
@@ -101,11 +99,14 @@ class App extends Component {
     fr.readAsDataURL(myFile);
   }
 
+
+
   //Email
   handleKeyUpE(event) {
     const cardO = this.state.card
-    this.setState({ card: {...cardO, email: event.currentTarget.value} });
+    this.setState({ card: {...cardO, email: event.currentTarget.value, opacity: false} });
     this.startLocalStorage()
+    this.state.opacity = false;
   }
 
   //Phone
@@ -195,6 +196,7 @@ class App extends Component {
 
      name={this.state.card.name} 
      job={this.state.card.job} 
+     opacity={this.state.opacity}
      email={this.state.card.email} 
      phone={this.state.card.phone} 
      linkedin={this.state.card.linkedin} 
