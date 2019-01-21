@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import logo from './images/logo-card.svg';
 import logoAdalab from './images/logo-adalab.png';
 import './App.css';
-import Cards from './Cards';
 
-class Home extends React.Component {
+
+class Home extends Component {
   render() {
 
     return (
@@ -31,10 +32,10 @@ class Home extends React.Component {
 
                   <div className="home__options--text">Comparte</div>
                 </li>
-              </ul> <a href="">
+              </ul> 
+              <Link to="/Cards">
                 <div className="home__link">Comenzar</div>
-              </a>
-
+                </Link>
             </main>
           </div>
         </div>

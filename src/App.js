@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import Home from './Home';
 import Cards from './Cards';
+import './App.css';
 import DefaultImage from './images/lobo.jpg';
 import {fetchSkills} from './services/GetSkills';
 const fr = new FileReader();
@@ -37,7 +39,7 @@ class App extends Component {
 
  }
   //LocalStorage
-  componentWillUnmount(){
+  componentDidMount(){
     const value = this.state.cards;
     this.saveLastSearch(value);
   }
@@ -59,8 +61,7 @@ class App extends Component {
       paletteValue: 1,
       typoValue: 2
     }
-    
-    
+    console.log(lastSearch)
     return lastSearch;
   }
  
@@ -136,60 +137,54 @@ class App extends Component {
   getSkillsApi(){
     fetchSkills()
     .then(data => {
-      this.setState({
-        skillsApi: data.skills
-      });
+        this.setState({
+          skillsApi: data.skills
+        });
       })
   }
 
 
   render() {
     this.getSkillsApi();
-
+   
     return (
-         
-     <Cards  
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/cards" component={Cards} 
+          handleKeyUpN={this.handleKeyUpN} 
+          handleKeyUpJ={this.handleKeyUpJ} 
+          handleKeyUpE={this.handleKeyUpE} 
+          handleKeyUpP={this.handleKeyUpP} 
+          handleKeyUpL={this.handleKeyUpL} 
+          handleKeyUpG={this.handleKeyUpG} 
 
-     //user info
-     handleKeyUpN={this.handleKeyUpN} 
-     handleKeyUpJ={this.handleKeyUpJ} 
-     handleKeyUpE={this.handleKeyUpE} 
-     handleKeyUpP={this.handleKeyUpP} 
-     handleKeyUpL={this.handleKeyUpL} 
-     handleKeyUpG={this.handleKeyUpG} 
+          name={this.state.card.name} 
+          job={this.state.card.job} 
+          email={this.state.card.email} 
+          phone={this.state.card.phone} 
+          linkedin={this.state.card.linkedin} 
+          github={this.state.card.github}
+          skills={this.state.card.skills}
+          skillsApi={this.state.skillsApi}
+          
+          //Image
+          handleChangeFile={this.handleChangeFile} 
+          fakeClick={this.fakeClick} 
+          img={this.state.card.img} 
+          fileInput={this.fileInput}
 
-     name={this.state.card.name} 
-     job={this.state.card.job} 
-     email={this.state.card.email} 
-     phone={this.state.card.phone} 
-     linkedin={this.state.card.linkedin} 
-     github={this.state.card.github}
-     skills={this.state.card.skills}
-     skillsApi={this.state.skillsApi}
+          //Design
+          cardData = {this.cardData}
+          contactIcons ={this.contactIcons}
 
-     //Image
-     handleChangeFile={this.handleChangeFile} 
-     fakeClick={this.fakeClick} 
-     img={this.state.card.img} 
-     fileInput={this.fileInput}
+          paletteValue={this.state.card.paletteValue}
+          typoValue={this.state.card.typoValue}
 
-    //Design
-     cardData = {this.cardData}
-     contactIcons ={this.contactIcons}
+          handleColourChange={this.handleColourChange}
+          handleTypoChange={this.handleTypoChange}
+          />
+      </Switch>
 
-     paletteValue={this.state.card.paletteValue}
-     typoValue={this.state.card.typoValue}
-
-
-
-     handleColourChange={this.handleColourChange}
-     handleTypoChange={this.handleTypoChange}
-    
-
-     />
-
-
-     
     );
   }
 }
