@@ -35,9 +35,12 @@ class App extends Component {
     this.handleColourChange = this.handleColourChange.bind(this);
     this.handleTypoChange = this.handleTypoChange.bind(this);
 
+    this.startLocalStorage = this.startLocalStorage.bind(this);
+    this.addSkillorNot = this.addSkillorNot.bind(this);
+
  }
   //LocalStorage
-  componentWillUnmount(){
+  startLocalStorage(){
     const value = this.state.cards;
     this.saveLastSearch(value);
   }
@@ -47,7 +50,7 @@ class App extends Component {
   }
 
   getLastSearch(){
-    const lastSearch = (localStorage.getItem('backup') !== null) ? JSON.parse(localStorage.getItem('backup')) : {
+  const lastSearch = (localStorage.getItem('backup') !== null) ? JSON.parse(localStorage.getItem('backup')) : {
       name: "Nombre y apellidos",
       job: "Front end developer",
       email: "",
@@ -59,21 +62,23 @@ class App extends Component {
       paletteValue: 1,
       typoValue: 2
     }
-    
-    
+    console.log(localStorage.getItem('backup'))
     return lastSearch;
   }
+
  
   //Name
   handleKeyUpN(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, name: event.currentTarget.value} });
+    this.startLocalStorage()
   }
 
   //Job
   handleKeyUpJ(event) {
     const cardO = this.state.card
-    this.setState({ card: {...cardO, job: event.currentTarget.value} }); 
+    this.setState({ card: {...cardO, job: event.currentTarget.value} });
+    this.startLocalStorage()
   }
 
   //Loading image
@@ -87,6 +92,7 @@ class App extends Component {
     this.setState({
       card: {...cardO, img: url}
     });
+    this.startLocalStorage()
   }
 
   handleChangeFile(event){
@@ -99,22 +105,26 @@ class App extends Component {
   handleKeyUpE(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, email: event.currentTarget.value} });
+    this.startLocalStorage()
   }
 
   //Phone
   handleKeyUpP(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, phone: event.currentTarget.value} });
+    this.startLocalStorage()
   }
   //GitHub
   handleKeyUpG(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, github: event.currentTarget.value} });
+    this.startLocalStorage()
   }
   //Linkedin
   handleKeyUpL(event) {
     const cardO = this.state.card
     this.setState({ card: {...cardO, linkedin: event.currentTarget.value} });
+    this.startLocalStorage();
   }
 
   //Design
@@ -123,12 +133,14 @@ class App extends Component {
     const cardO = this.state.card
     const radioValue = parseInt(e.currentTarget.value);
     this.setState({ card: {...cardO, paletteValue: radioValue}});
+    this.startLocalStorage()
   }
 
   handleTypoChange(e) {
     const cardO = this.state.card
     const radioValue = parseInt(e.currentTarget.value);
     this.setState({ card: {...cardO, typoValue: radioValue}});
+    this.startLocalStorage()
   }
 
   //Get skills from API(servicefolder)
@@ -140,6 +152,29 @@ class App extends Component {
         skillsApi: data.skills
       });
       })
+  }
+
+   //Checking Only 3 Skills
+   addSkillorNot(e){
+    const currentSkill = this.state.card.skills.slice(0);
+    const check = e.currentTarget;
+    const newSkill = e.currentTarget.value;
+    const isChecked = check.checked;
+   
+      if(currentSkill.length < 3 && isChecked){
+        currentSkill.push(newSkill);
+        const newCard = {...this.state.card, skills: currentSkill}
+        this.setState({
+          card: newCard
+        });
+      } else {
+        check.checked = false;
+        if(currentSkill.indexOf(newSkill) > -1){
+          currentSkill.splice(currentSkill.indexOf(newSkill), 1);
+        } else {
+          
+        }
+      } 
   }
 
 
@@ -185,7 +220,7 @@ class App extends Component {
      handleColourChange={this.handleColourChange}
      handleTypoChange={this.handleTypoChange}
     
-
+     addSkillorNot = {this.addSkillorNot}
      />
 
 

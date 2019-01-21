@@ -40,6 +40,8 @@ class Cards extends Component {
             handleTypoChange={this.props.handleTypoChange}
             paletteValue={this.props.paletteValue}
             typoValue={this.props.typoValue}
+
+            addSkillorNot = {this.props.addSkillorNot}
             />
 
           <CardViewer

@@ -71,7 +71,7 @@ class Fill extends Component {
                       const idName=`skills-data-${item}`;
                      return(
                         <label htmlFor={idName} key={index}>
-                        <input 
+                        <input onClick={this.props.addSkillorNot}
                             id={idName} 
                             className="skills__checkbox" 
                             type="checkbox" 
