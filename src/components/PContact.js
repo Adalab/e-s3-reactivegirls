@@ -11,7 +11,7 @@ class PContact extends Component {
         return (
             <div className="list__card-contact">
                 <ul className="card__contact">
-                    <li id="icon__phone" className="contact-icons contact-icons__color1 opacity">
+                    <li id="icon__phone" className="contact-icons contact-icons__color1 opacity" ref={this.props.contactIcons}>
                         <a href={toPhone}>
                             <i className="fas fa-mobile-alt"></i>
                         </a>

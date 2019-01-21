@@ -19,13 +19,23 @@ class App extends Component {
         phone: "",
         img: DefaultImage,
         linkedin: "",
-        github: "",
-        skills: []
+        github:"",
+        skills:[],
+        paletteValue: 3,
+        typoValue: 2
+      },
+      classes:{
+        colourClass: "",
+        typoClass: ""
       },
       skillsApi: []
 
     };
+
+    this.cardData = React.createRef();
     this.fileInput = React.createRef();
+    this.contactIcons = React.createRef();
+
 
     this.handleKeyUpN = this.handleKeyUpN.bind(this);
     this.handleKeyUpJ = this.handleKeyUpJ.bind(this);
@@ -34,12 +44,17 @@ class App extends Component {
     this.handleKeyUpL = this.handleKeyUpL.bind(this);
     this.handleKeyUpG = this.handleKeyUpG.bind(this);
 
+
     this.fakeClick = this.fakeClick.bind(this);
     this.writeImage = this.writeImage.bind(this);
     this.handleChangeFile = this.handleChangeFile.bind(this);
 
+    this.handleColourChange = this.handleColourChange.bind(this);
+    this.handleTypoChange = this.handleTypoChange.bind(this);
 
-  }
+ }
+
+
 
   //Name
   handleKeyUpN(event) {
@@ -94,10 +109,25 @@ class App extends Component {
     this.setState({ card: { ...cardO, linkedin: event.currentTarget.value } });
   }
 
+  //Design
+
+  handleColourChange(e) {
+    const cardO = this.state.card
+    const radioValue = parseInt(e.currentTarget.value);
+    this.setState({ card: { ...cardO, paletteValue: radioValue } });
+  }
+
+  handleTypoChange(e) {
+    const cardO = this.state.card
+    const radioValue = parseInt(e.currentTarget.value);
+    this.setState({ card: { ...cardO, typoValue: radioValue } });
+  }
+
+  //Get skills from API(servicefolder)
+
   getSkillsApi() {
     fetchSkills()
       .then(data => {
-        console.log(data);
         this.setState({
           skillsApi: data.skills
         });
@@ -115,8 +145,9 @@ class App extends Component {
           <Route path="/cards" component={Cards} />
         </Switch>
 
-
         <Cards
+
+          //user info
           handleKeyUpN={this.handleKeyUpN}
           handleKeyUpJ={this.handleKeyUpJ}
           handleKeyUpE={this.handleKeyUpE}
@@ -133,10 +164,24 @@ class App extends Component {
           skills={this.state.card.skills}
           skillsApi={this.state.skillsApi}
 
+          //Image
           handleChangeFile={this.handleChangeFile}
           fakeClick={this.fakeClick}
           img={this.state.card.img}
-          fileInput={this.fileInput} />
+          fileInput={this.fileInput}
+
+          //Design
+          cardData={this.cardData}
+          contactIcons={this.contactIcons}
+
+          paletteValue={this.state.card.paletteValue}
+          typoValue={this.state.card.typoValue}
+
+          handleColourChange={this.handleColourChange}
+          handleTypoChange={this.handleTypoChange}
+          colourClass={this.state.classes.colourClass}
+        />
+
       </section>
     );
   }

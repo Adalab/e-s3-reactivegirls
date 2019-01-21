@@ -1,22 +1,20 @@
-# e-s3-reactivegirls
+ e-s3-reactivegirls
 
-##Proyect with legacy code
+## Legacy project
 
 This is an inherited project from the group Wild Coders. The original repository can be found at: https://github.com/Adalab/easley-s2-wildcoders.
 
 We created a new repository to refactor the code using the React library: 
 https://github.com/Adalab/e-s3-reactivegirls.
 
-##Original Project: Awesome Profile Cards
+## Original project: Awesome Profile Cards
 
-For this project we made a web application that allows users to create a personalized business card. Through the app we can introduce our professional information and dowmload a (design view with this information) professiona
-It will be an interactive web application created by the user and that he can use to create his own professional business cards.
+For this project, we made an interactive web application to create personalized business cards. Through the app, users can introduce their professional information and preview the card before downloading it.
 
-The application works by following these steps:
+The application works as follows:
 
-- Allow the user to choose the style of the card, choosing the color palette and typography.
+- It allows users to choose the style for the card in terms of colour and typography.
 
-- Allow the user, when entering information in a form, that this text is automatically displayed in a box similar to a business card, which will be the sample of the final result.
+- When information is entered in the form, it is automatically displayed on the screen for the user to have a preview of the card before downloading it.
 
-- Allow the user to share his business card through Twitter.
-
+- When the card is generated, users can share it through Twitter.

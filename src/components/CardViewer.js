@@ -16,7 +16,15 @@ class CardViewer extends Component {
                     linkedin={this.props.linkedin}
                     github={this.props.github}
 
+
                     img={this.props.img}
+                    cardData = {this.props.cardData}
+                    contactIcons ={this.props.contactIcons}
+                    colourClass={this.props.colourClass}
+                    handleColourP ={this.props.handleColourP}
+
+                    paletteValue={this.props.paletteValue}
+                    typoValue={this.props.typoValue}
                 />
             </div>
         );
