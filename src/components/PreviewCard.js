@@ -12,7 +12,6 @@ class PreviewCard extends Component {
                 name={this.props.name} 
                 job={this.props.job} 
                 cardData = {this.props.cardData}
-                colourClass={this.props.colourClass}
                 handleColourP ={this.props.handleColourP}
                 paletteValue={this.props.paletteValue}
                 typoValue={this.props.typoValue}

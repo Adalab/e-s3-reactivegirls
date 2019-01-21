@@ -10,22 +10,7 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      card:{
-        name: "Nombre y apellidos",
-        job: "Front end developer",
-        email: "",
-        phone: "",
-        img: DefaultImage,
-        linkedin: "",
-        github:"",
-        skills:[],
-        paletteValue: 3,
-        typoValue: 2
-      },
-      classes:{
-        colourClass: "",
-        typoClass: ""
-      },
+      card: this.getLastSearch(),
       skillsApi:[]
       
     };
@@ -50,11 +35,34 @@ class App extends Component {
     this.handleColourChange = this.handleColourChange.bind(this);
     this.handleTypoChange = this.handleTypoChange.bind(this);
 
-
-     
  }
+  //LocalStorage
+  componentWillUnmount(){
+    const value = this.state.cards;
+    this.saveLastSearch(value);
+  }
 
- 
+  saveLastSearch(value){
+    localStorage.setItem('backup', JSON.stringify(value))
+  }
+
+  getLastSearch(){
+    const lastSearch = (localStorage.getItem('backup') !== null) ? JSON.parse(localStorage.getItem('backup')) : {
+      name: "Nombre y apellidos",
+      job: "Front end developer",
+      email: "",
+      phone: "",
+      img: DefaultImage,
+      linkedin: "",
+      github:"",
+      skills:[],
+      paletteValue: 1,
+      typoValue: 2
+    }
+    
+    
+    return lastSearch;
+  }
  
   //Name
   handleKeyUpN(event) {
@@ -176,7 +184,6 @@ class App extends Component {
 
      handleColourChange={this.handleColourChange}
      handleTypoChange={this.handleTypoChange}
-     colourClass={this.state.classes.colourClass}
     
 
      />
