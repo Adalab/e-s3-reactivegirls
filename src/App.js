@@ -203,7 +203,6 @@ class App extends Component {
     // this.getSkillsApi();
 
     return (
-         
      <Cards  
 
      //user info

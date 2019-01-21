@@ -17,7 +17,7 @@ class Collapsibles extends Component {
             cardData = {this.props.cardData}
             contactIcons ={this.props.contactIcons}
             
-            />/>
+            />
           <Fill
             skillsApi={this.props.skillsApi}
             name={this.props.name}
