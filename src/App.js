@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import Home from './Home';
 import Cards from './Cards';
+import './App.css';
 import DefaultImage from './images/lobo.jpg';
 import {fetchSkills} from './services/GetSkills';
 const fr = new FileReader();
@@ -10,7 +12,7 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      card: this.getLastSearch(),
+      card: {},
       skillsApi:[],
       opacity: true
     };
@@ -34,14 +36,16 @@ class App extends Component {
     this.handleColourChange = this.handleColourChange.bind(this);
     this.handleTypoChange = this.handleTypoChange.bind(this);
 
-    this.startLocalStorage = this.startLocalStorage.bind(this);
     this.addSkillorNot = this.addSkillorNot.bind(this);
 
  }
-  //LocalStorage
-  startLocalStorage(){
-    const value = this.state.cards;
-    this.saveLastSearch(value);
+ 
+  componentDidMount(){
+    this.setState({
+      card: this.getLastSearch()
+    });
+    this.getSkillsApi();
+    
   }
 
   saveLastSearch(value){
@@ -54,12 +58,12 @@ class App extends Component {
       job: "Front end developer",
       email: "",
       phone: "",
-      img: DefaultImage,
+      photo: DefaultImage,
       linkedin: "",
       github:"",
       skills:[],
-      paletteValue: 1,
-      typoValue: 2
+      palette: 1,
+      typography: 2
     }
     return lastSearch;
   }
@@ -67,16 +71,22 @@ class App extends Component {
  
   //Name
   handleKeyUpN(event) {
-    const cardO = this.state.card
-    this.setState({ card: {...cardO, name: event.currentTarget.value} });
-    this.startLocalStorage()
+
+    const {card} = this.state;
+    const newCard = {...card, name: event.currentTarget.value};
+
+    this.setState({ card: newCard });
+    this.saveLastSearch(newCard);
+
   }
 
   //Job
   handleKeyUpJ(event) {
-    const cardO = this.state.card
-    this.setState({ card: {...cardO, job: event.currentTarget.value} });
-    this.startLocalStorage()
+    const {card} = this.state;
+    const newCard = {...card, job: event.currentTarget.value};
+
+    this.setState({ card: newCard });
+    this.saveLastSearch(newCard);
   }
 
   //Loading image
@@ -86,11 +96,12 @@ class App extends Component {
 
   writeImage(){
     const url = fr.result;
-    const cardO = this.state.card
+    const {card} = this.state;
+    const newCard = {...card, photo: url};
     this.setState({
-      card: {...cardO, img: url}
+      card: newCard
     });
-    this.startLocalStorage()
+    this.saveLastSearch(newCard);
   }
 
   handleChangeFile(event){
@@ -103,45 +114,55 @@ class App extends Component {
 
   //Email
   handleKeyUpE(event) {
-    const cardO = this.state.card
-    this.setState({ card: {...cardO, email: event.currentTarget.value, opacity: false} });
-    this.startLocalStorage()
-    this.state.opacity = false;
+    const {card} = this.state;
+    const newCard = {...card, email: event.currentTarget.value};
+
+    this.setState({ card: newCard });
+    this.saveLastSearch(newCard);
   }
 
   //Phone
   handleKeyUpP(event) {
-    const cardO = this.state.card
-    this.setState({ card: {...cardO, phone: event.currentTarget.value} });
-    this.startLocalStorage()
+    const {card} = this.state;
+    const newCard = {...card, phone: event.currentTarget.value};
+
+    this.setState({ card: newCard });
+    this.saveLastSearch(newCard);
   }
   //GitHub
   handleKeyUpG(event) {
-    const cardO = this.state.card
-    this.setState({ card: {...cardO, github: event.currentTarget.value} });
-    this.startLocalStorage()
+    const {card} = this.state;
+    const newCard = {...card, github: event.currentTarget.value};
+
+    this.setState({ card: newCard });
+    this.saveLastSearch(newCard);
   }
   //Linkedin
   handleKeyUpL(event) {
-    const cardO = this.state.card
-    this.setState({ card: {...cardO, linkedin: event.currentTarget.value} });
-    this.startLocalStorage();
+    const {card} = this.state;
+    const newCard = {...card, linkedin: event.currentTarget.value};
+
+    this.setState({ card: newCard });
+    this.saveLastSearch(newCard);
   }
 
   //Design
-
   handleColourChange(e) {
-    const cardO = this.state.card
     const radioValue = parseInt(e.currentTarget.value);
-    this.setState({ card: {...cardO, paletteValue: radioValue}});
-    this.startLocalStorage()
+    const {card} = this.state;
+    const newCard = {...card, palette: radioValue};
+
+    this.setState({ card: newCard });
+    this.saveLastSearch(newCard);
   }
 
   handleTypoChange(e) {
-    const cardO = this.state.card
     const radioValue = parseInt(e.currentTarget.value);
-    this.setState({ card: {...cardO, typoValue: radioValue}});
-    this.startLocalStorage()
+    const {card} = this.state;
+    const newCard = {...card, typography: radioValue};
+
+    this.setState({ card: newCard });
+    this.saveLastSearch(newCard);
   }
 
   //Get skills from API(servicefolder)
@@ -149,14 +170,17 @@ class App extends Component {
   getSkillsApi(){
     fetchSkills()
     .then(data => {
-      this.setState({
-        skillsApi: data.skills
-      });
+      console.log(data.skills);
+        this.setState({
+          skillsApi: data.skills
+        } );
+     
       })
   }
 
    //Checking Only 3 Skills
    addSkillorNot(e){
+    const {card} = this.state;
     const currentSkill = this.state.card.skills.slice(0);
     const check = e.currentTarget;
     const newSkill = e.currentTarget.value;
@@ -172,61 +196,59 @@ class App extends Component {
         check.checked = false;
         if(currentSkill.indexOf(newSkill) > -1){
           currentSkill.splice(currentSkill.indexOf(newSkill), 1);
-        } else {
-          
         }
       } 
+
+      const newCard = {...card, skills: currentSkill};
+
+      this.setState({
+        card: newCard
+      });
   }
 
-
   render() {
-    this.getSkillsApi();
-
-    return (
-         
-     <Cards  
-
-     //user info
-     handleKeyUpN={this.handleKeyUpN} 
-     handleKeyUpJ={this.handleKeyUpJ} 
-     handleKeyUpE={this.handleKeyUpE} 
-     handleKeyUpP={this.handleKeyUpP} 
-     handleKeyUpL={this.handleKeyUpL} 
-     handleKeyUpG={this.handleKeyUpG} 
-
-     name={this.state.card.name} 
-     job={this.state.card.job} 
-     opacity={this.state.opacity}
-     email={this.state.card.email} 
-     phone={this.state.card.phone} 
-     linkedin={this.state.card.linkedin} 
-     github={this.state.card.github}
-     skills={this.state.card.skills}
-     skillsApi={this.state.skillsApi}
-
-     //Image
-     handleChangeFile={this.handleChangeFile} 
-     fakeClick={this.fakeClick} 
-     img={this.state.card.img} 
-     fileInput={this.fileInput}
-
-    //Design
-     cardData = {this.cardData}
-     contactIcons ={this.contactIcons}
-
-     paletteValue={this.state.card.paletteValue}
-     typoValue={this.state.card.typoValue}
-
-
-
-     handleColourChange={this.handleColourChange}
-     handleTypoChange={this.handleTypoChange}
     
-     addSkillorNot = {this.addSkillorNot}
-     />
+    return (
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/cards" render={
+          () => <Cards 
+                  addSkillorNot={this.addSkillorNot}
+                  handleKeyUpN={this.handleKeyUpN} 
+                  handleKeyUpJ={this.handleKeyUpJ} 
+                  handleKeyUpE={this.handleKeyUpE} 
+                  handleKeyUpP={this.handleKeyUpP} 
+                  handleKeyUpL={this.handleKeyUpL} 
+                  handleKeyUpG={this.handleKeyUpG} 
 
+                  name={this.state.card.name} 
+                  job={this.state.card.job} 
+                  email={this.state.card.email} 
+                  phone={this.state.card.phone} 
+                  linkedin={this.state.card.linkedin} 
+                  github={this.state.card.github}
+                  skills={this.state.card.skills}
+                  skillsApi={this.state.skillsApi}
+                  
+                  //Image
+                  handleChangeFile={this.handleChangeFile} 
+                  fakeClick={this.fakeClick} 
+                  img={this.state.card.photo} 
+                  fileInput={this.fileInput}
 
-     
+                  //Design
+                  cardData = {this.cardData}
+                  contactIcons ={this.contactIcons}
+
+                  paletteValue={this.state.card.palette}
+                  typoValue={this.state.card.typography}
+
+                  handleColourChange={this.handleColourChange}
+                  handleTypoChange={this.handleTypoChange}
+                  />
+                } />
+      </Switch>
+
     );
   }
 }

@@ -4,6 +4,7 @@ class Fill extends Component {
     
 
   render() {
+
     return(<fieldset className="form__personal-data form__fieldset">
     <li className="bar__menu-card">
         <div className="wrapper__bar-menu">
