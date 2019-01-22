@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 class PTitle extends Component {
     render(){
-
+        const divClass = `card__data card-data__color${this.props.paletteValue} typo-${this.props.typoValue}`;
+     
         return(                   
-            <div className="card__data card-data__color1">
-                <div className="card__data-name typo-1">{this.props.name}</div>
-                <div className="card__data-job typo-1">{this.props.job}</div>
+            <div className={divClass} ref={this.props.cardData}>
+                <div className="card__data-name">{this.props.name}</div>
+                <div className="card__data-job">{this.props.job}</div>
             </div>
         );
 
