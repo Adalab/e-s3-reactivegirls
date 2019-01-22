@@ -13,15 +13,15 @@ class App extends Component {
     super(props);
     this.state = {
       card: {},
-      skillsApi:[]
-      
+      skillsApi:[],
+      opacity: true
     };
+    
 
     this.cardData = React.createRef();
     this.fileInput = React.createRef();
     this.contactIcons = React.createRef();
     
-
     this.handleKeyUpN = this.handleKeyUpN.bind(this);
     this.handleKeyUpJ = this.handleKeyUpJ.bind(this);
     this.handleKeyUpE = this.handleKeyUpE.bind(this);
@@ -29,13 +29,14 @@ class App extends Component {
     this.handleKeyUpL = this.handleKeyUpL.bind(this);
     this.handleKeyUpG = this.handleKeyUpG.bind(this);
     
-
     this.fakeClick = this.fakeClick.bind(this);
     this.writeImage = this.writeImage.bind(this);
     this.handleChangeFile = this.handleChangeFile.bind(this);
 
     this.handleColourChange = this.handleColourChange.bind(this);
     this.handleTypoChange = this.handleTypoChange.bind(this);
+
+    this.addSkillorNot = this.addSkillorNot.bind(this);
 
  }
  
@@ -52,7 +53,7 @@ class App extends Component {
   }
 
   getLastSearch(){
-    const lastSearch = (localStorage.getItem('backup') !== null) ? JSON.parse(localStorage.getItem('backup')) : {
+  const lastSearch = (localStorage.getItem('backup') !== null) ? JSON.parse(localStorage.getItem('backup')) : {
       name: "Nombre y apellidos",
       job: "Front end developer",
       email: "",
@@ -64,12 +65,13 @@ class App extends Component {
       palette: 1,
       typography: 2
     }
-
     return lastSearch;
   }
+
  
   //Name
   handleKeyUpN(event) {
+
     const {card} = this.state;
     const newCard = {...card, name: event.currentTarget.value};
 
@@ -107,6 +109,8 @@ class App extends Component {
     fr.addEventListener('load', this.writeImage);
     fr.readAsDataURL(myFile);
   }
+
+
 
   //Email
   handleKeyUpE(event) {
@@ -174,16 +178,42 @@ class App extends Component {
       })
   }
 
+   //Checking Only 3 Skills
+   addSkillorNot(e){
+    const {card} = this.state;
+    const currentSkill = this.state.card.skills.slice(0);
+    const check = e.currentTarget;
+    const newSkill = e.currentTarget.value;
+    const isChecked = check.checked;
+   
+      if(currentSkill.length < 3 && isChecked){
+        currentSkill.push(newSkill);
+        const newCard = {...this.state.card, skills: currentSkill}
+        this.setState({
+          card: newCard
+        });
+      } else {
+        check.checked = false;
+        if(currentSkill.indexOf(newSkill) > -1){
+          currentSkill.splice(currentSkill.indexOf(newSkill), 1);
+        }
+      } 
+
+      const newCard = {...card, skills: currentSkill};
+
+      this.setState({
+        card: newCard
+      });
+  }
 
   render() {
     
-   
     return (
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/cards" render={
           () => <Cards 
-
+                  addSkillorNot={this.addSkillorNot}
                   handleKeyUpN={this.handleKeyUpN} 
                   handleKeyUpJ={this.handleKeyUpJ} 
                   handleKeyUpE={this.handleKeyUpE} 

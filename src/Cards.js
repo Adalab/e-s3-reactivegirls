@@ -40,12 +40,15 @@ class Cards extends Component {
             handleTypoChange={this.props.handleTypoChange}
             paletteValue={this.props.paletteValue}
             typoValue={this.props.typoValue}
+
+            addSkillorNot = {this.props.addSkillorNot}
             />
 
           <CardViewer
             skills={this.props.skills}
             name={this.props.name}
             job={this.props.job}
+            opacity={this.props.opacity}
             email={this.props.email}
             phone={this.props.phone}
             linkedin={this.props.linkedin}

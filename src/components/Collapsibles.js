@@ -38,7 +38,9 @@ class Collapsibles extends Component {
             handleChangeFile={this.props.handleChangeFile}
             fakeClick={this.props.fakeClick}
             img={this.props.img}
-            fileInput={this.props.fileInput} 
+            fileInput={this.props.fileInput}
+            
+            addSkillorNot = {this.props.addSkillorNot}
             />
           <Share />
         </ul>
