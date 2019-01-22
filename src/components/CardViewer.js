@@ -4,6 +4,7 @@ import PreviewCard from './PreviewCard';
 
 class CardViewer extends Component {
     render() {
+        
         return (
             <div className="container__card-editor">
                 <ButtonReset />
@@ -24,6 +25,11 @@ class CardViewer extends Component {
 
                     paletteValue={this.props.paletteValue}
                     typoValue={this.props.typoValue}
+                    hiddenE={this.props.hiddenE}
+                    hiddenP={this.props.hiddenP}
+                    hiddenS={this.props.hiddenS}
+                    hiddenL={this.props.hiddenL}
+                    hiddenG={this.props.hiddenG}
                 />
             </div>
         );

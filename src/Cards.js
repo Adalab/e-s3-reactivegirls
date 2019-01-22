@@ -9,6 +9,7 @@ import './App.css';
 class Cards extends Component {
 
   render() {
+    
     return (
       <div>
         <Header />
@@ -48,7 +49,11 @@ class Cards extends Component {
             skills={this.props.skills}
             name={this.props.name}
             job={this.props.job}
-            opacity={this.props.opacity}
+            hiddenE={this.props.hiddenE}
+            hiddenP={this.props.hiddenP}
+            hiddenS={this.props.hiddenS}
+            hiddenL={this.props.hiddenL}
+            hiddenG={this.props.hiddenG}
             email={this.props.email}
             phone={this.props.phone}
             linkedin={this.props.linkedin}

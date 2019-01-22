@@ -14,7 +14,11 @@ class App extends Component {
     this.state = {
       card: {},
       skillsApi:[],
-      opacity: true
+      hiddenE: true,
+      hiddenP: true,
+      hiddenS: true,
+      hiddenG: true,
+      hiddenL: true
     };
     
 
@@ -68,7 +72,6 @@ class App extends Component {
     return lastSearch;
   }
 
- 
   //Name
   handleKeyUpN(event) {
 
@@ -110,14 +113,16 @@ class App extends Component {
     fr.readAsDataURL(myFile);
   }
 
-
-
   //Email
   handleKeyUpE(event) {
     const {card} = this.state;
     const newCard = {...card, email: event.currentTarget.value};
-
-    this.setState({ card: newCard });
+    const hiddenStatus = (event.currentTarget.value === null)? true :
+    false;
+  
+    this.setState({ 
+      card: newCard, 
+      hiddenE: hiddenStatus });
     this.saveLastSearch(newCard);
   }
 
@@ -125,24 +130,33 @@ class App extends Component {
   handleKeyUpP(event) {
     const {card} = this.state;
     const newCard = {...card, phone: event.currentTarget.value};
+    const hiddenStatus = (event.currentTarget.value === null)? true :
+    false;
 
-    this.setState({ card: newCard });
+    this.setState({ card: newCard,
+    hiddenP: hiddenStatus  });
     this.saveLastSearch(newCard);
   }
   //GitHub
   handleKeyUpG(event) {
     const {card} = this.state;
     const newCard = {...card, github: event.currentTarget.value};
+    const hiddenStatus = (event.currentTarget.value === null)? true :
+    false;
 
-    this.setState({ card: newCard });
+    this.setState({ card: newCard,
+    hiddenG: hiddenStatus });
     this.saveLastSearch(newCard);
   }
   //Linkedin
   handleKeyUpL(event) {
     const {card} = this.state;
     const newCard = {...card, linkedin: event.currentTarget.value};
+    const hiddenStatus = (event.currentTarget.value === null)? true :
+    false;
 
-    this.setState({ card: newCard });
+    this.setState({ card: newCard,
+    hiddenL: hiddenStatus });
     this.saveLastSearch(newCard);
   }
 
@@ -170,11 +184,9 @@ class App extends Component {
   getSkillsApi(){
     fetchSkills()
     .then(data => {
-      console.log(data.skills);
         this.setState({
           skillsApi: data.skills
         } );
-     
       })
   }
 
@@ -185,12 +197,15 @@ class App extends Component {
     const check = e.currentTarget;
     const newSkill = e.currentTarget.value;
     const isChecked = check.checked;
+    const hiddenStatus = (newSkill === null)? true :
+    false;
    
       if(currentSkill.length < 3 && isChecked){
         currentSkill.push(newSkill);
         const newCard = {...this.state.card, skills: currentSkill}
         this.setState({
-          card: newCard
+          card: newCard,
+          hiddenS: hiddenStatus
         });
       } else {
         check.checked = false;
@@ -200,14 +215,14 @@ class App extends Component {
       } 
 
       const newCard = {...card, skills: currentSkill};
-
+      
       this.setState({
         card: newCard
       });
   }
 
   render() {
-    
+   
     return (
       <Switch>
         <Route exact path="/" component={Home}/>
@@ -242,6 +257,11 @@ class App extends Component {
 
                   paletteValue={this.state.card.palette}
                   typoValue={this.state.card.typography}
+                  hiddenE={this.state.hiddenE}
+                  hiddenP={this.state.hiddenP}
+                  hiddenS={this.state.hiddenS}
+                  hiddenL={this.state.hiddenL}
+                  hiddenG={this.state.hiddenG}
 
                   handleColourChange={this.handleColourChange}
                   handleTypoChange={this.handleTypoChange}
