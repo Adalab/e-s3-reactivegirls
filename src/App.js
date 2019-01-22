@@ -14,7 +14,8 @@ class App extends Component {
     this.state = {
       card: {},
       skillsApi:[],
-      opacity: true
+      hidden: true,
+      hiddenS: true,
     };
     
 
@@ -68,7 +69,6 @@ class App extends Component {
     return lastSearch;
   }
 
- 
   //Name
   handleKeyUpN(event) {
 
@@ -110,14 +110,16 @@ class App extends Component {
     fr.readAsDataURL(myFile);
   }
 
-
-
   //Email
   handleKeyUpE(event) {
     const {card} = this.state;
     const newCard = {...card, email: event.currentTarget.value};
-
-    this.setState({ card: newCard });
+    const hiddenStatus = (event.currentTarget.value === null)? true :
+    false;
+  
+    this.setState({ 
+      card: newCard, 
+      hidden: hiddenStatus });
     this.saveLastSearch(newCard);
   }
 
@@ -126,7 +128,7 @@ class App extends Component {
     const {card} = this.state;
     const newCard = {...card, phone: event.currentTarget.value};
 
-    this.setState({ card: newCard });
+    this.setState({ card: newCard,  });
     this.saveLastSearch(newCard);
   }
   //GitHub
@@ -170,11 +172,9 @@ class App extends Component {
   getSkillsApi(){
     fetchSkills()
     .then(data => {
-      console.log(data.skills);
         this.setState({
           skillsApi: data.skills
         } );
-     
       })
   }
 
@@ -185,12 +185,15 @@ class App extends Component {
     const check = e.currentTarget;
     const newSkill = e.currentTarget.value;
     const isChecked = check.checked;
+    const hiddenStatus = (newSkill === null)? true :
+    false;
    
       if(currentSkill.length < 3 && isChecked){
         currentSkill.push(newSkill);
         const newCard = {...this.state.card, skills: currentSkill}
         this.setState({
-          card: newCard
+          card: newCard,
+          hiddenS: hiddenStatus
         });
       } else {
         check.checked = false;
@@ -200,14 +203,14 @@ class App extends Component {
       } 
 
       const newCard = {...card, skills: currentSkill};
-
+      
       this.setState({
         card: newCard
       });
   }
 
   render() {
-    
+   
     return (
       <Switch>
         <Route exact path="/" component={Home}/>
@@ -242,6 +245,8 @@ class App extends Component {
 
                   paletteValue={this.state.card.palette}
                   typoValue={this.state.card.typography}
+                  hidden={this.state.hidden}
+                  hiddenS={this.state.hiddenS}
 
                   handleColourChange={this.handleColourChange}
                   handleTypoChange={this.handleTypoChange}

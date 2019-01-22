@@ -6,6 +6,7 @@ import PTitle from './PTitle';
 
 class PreviewCard extends Component {
     render() {
+        
         return (
             <div className="card__details">
                 <PTitle 
@@ -19,7 +20,7 @@ class PreviewCard extends Component {
                 
                 <PPicture img={this.props.img} />
                 <PContact
-                    opacity={this.props.opacity}
+                    hidden={this.props.hidden}
                     email={this.props.email}
                     phone={this.props.phone}
                     linkedin={this.props.linkedin}
@@ -30,7 +31,7 @@ class PreviewCard extends Component {
                 <PSkills
                     skills={this.props.skills}
                     paletteValue={this.props.paletteValue}
-
+                    hiddenS={this.props.hiddenS}
                 />
             </div>
         );
