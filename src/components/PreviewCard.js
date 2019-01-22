@@ -20,7 +20,10 @@ class PreviewCard extends Component {
                 
                 <PPicture img={this.props.img} />
                 <PContact
-                    hidden={this.props.hidden}
+                    hiddenE={this.props.hiddenE}
+                    hiddenP={this.props.hiddenP}
+                    hiddenL={this.props.hiddenL}
+                    hiddenG={this.props.hiddenG}
                     email={this.props.email}
                     phone={this.props.phone}
                     linkedin={this.props.linkedin}

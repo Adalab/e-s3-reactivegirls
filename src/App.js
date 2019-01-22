@@ -14,8 +14,11 @@ class App extends Component {
     this.state = {
       card: {},
       skillsApi:[],
-      hidden: true,
+      hiddenE: true,
+      hiddenP: true,
       hiddenS: true,
+      hiddenG: true,
+      hiddenL: true
     };
     
 
@@ -119,7 +122,7 @@ class App extends Component {
   
     this.setState({ 
       card: newCard, 
-      hidden: hiddenStatus });
+      hiddenE: hiddenStatus });
     this.saveLastSearch(newCard);
   }
 
@@ -127,24 +130,33 @@ class App extends Component {
   handleKeyUpP(event) {
     const {card} = this.state;
     const newCard = {...card, phone: event.currentTarget.value};
+    const hiddenStatus = (event.currentTarget.value === null)? true :
+    false;
 
-    this.setState({ card: newCard,  });
+    this.setState({ card: newCard,
+    hiddenP: hiddenStatus  });
     this.saveLastSearch(newCard);
   }
   //GitHub
   handleKeyUpG(event) {
     const {card} = this.state;
     const newCard = {...card, github: event.currentTarget.value};
+    const hiddenStatus = (event.currentTarget.value === null)? true :
+    false;
 
-    this.setState({ card: newCard });
+    this.setState({ card: newCard,
+    hiddenG: hiddenStatus });
     this.saveLastSearch(newCard);
   }
   //Linkedin
   handleKeyUpL(event) {
     const {card} = this.state;
     const newCard = {...card, linkedin: event.currentTarget.value};
+    const hiddenStatus = (event.currentTarget.value === null)? true :
+    false;
 
-    this.setState({ card: newCard });
+    this.setState({ card: newCard,
+    hiddenL: hiddenStatus });
     this.saveLastSearch(newCard);
   }
 
@@ -245,8 +257,11 @@ class App extends Component {
 
                   paletteValue={this.state.card.palette}
                   typoValue={this.state.card.typography}
-                  hidden={this.state.hidden}
+                  hiddenE={this.state.hiddenE}
+                  hiddenP={this.state.hiddenP}
                   hiddenS={this.state.hiddenS}
+                  hiddenL={this.state.hiddenL}
+                  hiddenG={this.state.hiddenG}
 
                   handleColourChange={this.handleColourChange}
                   handleTypoChange={this.handleTypoChange}

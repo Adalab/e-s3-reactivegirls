@@ -25,8 +25,11 @@ class CardViewer extends Component {
 
                     paletteValue={this.props.paletteValue}
                     typoValue={this.props.typoValue}
-                    hidden={this.props.hidden}
+                    hiddenE={this.props.hiddenE}
+                    hiddenP={this.props.hiddenP}
                     hiddenS={this.props.hiddenS}
+                    hiddenL={this.props.hiddenL}
+                    hiddenG={this.props.hiddenG}
                 />
             </div>
         );
