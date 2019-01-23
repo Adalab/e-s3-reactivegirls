@@ -228,6 +228,7 @@ class App extends Component {
         <Route exact path="/" component={Home}/>
         <Route path="/cards" render={
           () => <Cards 
+                  card = {this.state.card}
                   addSkillorNot={this.addSkillorNot}
                   handleKeyUpN={this.handleKeyUpN} 
                   handleKeyUpJ={this.handleKeyUpJ} 

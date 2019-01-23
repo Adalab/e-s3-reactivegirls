@@ -15,6 +15,7 @@ class Cards extends Component {
         <Header />
         <main className="page__main">
           <Collapsibles
+            card = {this.props.card}
             skillsApi={this.props.skillsApi}
             name={this.props.name}
             job={this.props.job}
