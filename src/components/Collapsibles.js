@@ -42,7 +42,9 @@ class Collapsibles extends Component {
             
             addSkillorNot = {this.props.addSkillorNot}
             />
-          <Share />
+          <Share
+            card = {this.props.card}
+          />
         </ul>
       </form>
     );
