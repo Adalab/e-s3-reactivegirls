@@ -47,6 +47,7 @@ class Cards extends Component {
             />
 
           <CardViewer
+            reset={this.props.reset}
             skills={this.props.skills}
             name={this.props.name}
             job={this.props.job}

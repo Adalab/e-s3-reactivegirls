@@ -41,6 +41,7 @@ class App extends Component {
     this.handleTypoChange = this.handleTypoChange.bind(this);
 
     this.addSkillorNot = this.addSkillorNot.bind(this);
+    this.reset=this.reset.bind(this);
 
  }
  
@@ -51,6 +52,31 @@ class App extends Component {
     this.getSkillsApi();
     
   }
+
+  reset(){
+    const resetCard= {
+      name: "Nombre y apellidos",
+      job: "Front end developer",
+      email: "",
+      phone: "",
+      photo: DefaultImage,
+      linkedin: "",
+      github:"",
+      skills:[],
+      palette: 1,
+      typography: 2
+    }
+   this.setState({
+     card: resetCard,
+    //  hiddenE: true,
+    //   hiddenP: true,
+    //   hiddenS: true,
+    //   hiddenG: true,
+    //   hiddenL: true
+   });
+  
+  }
+
 
   saveLastSearch(value){
     localStorage.setItem('backup', JSON.stringify(value))
@@ -229,6 +255,7 @@ class App extends Component {
         <Route path="/cards" render={
           () => <Cards 
                   card = {this.state.card}
+                  reset ={this.reset}
                   addSkillorNot={this.addSkillorNot}
                   handleKeyUpN={this.handleKeyUpN} 
                   handleKeyUpJ={this.handleKeyUpJ} 
