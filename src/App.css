@@ -1,4 +1,10 @@
 @import './styleSheets/_Home.scss';
+@import './styleSheets/_Header.scss';
+
+@import './styleSheets/_Collapsibles.scss';
+
+
+
 @import './styleSheets/_Share.scss';
 @import './styleSheets/_ButtonReset.scss';
 * {
@@ -38,63 +44,12 @@ fieldset {
   padding: 0;
 }
 
-.form__fieldset {
-  border-bottom: 1px solid #d8d8d8;
-  padding-bottom: 30px;
-}
 
-.wrapper__bar-menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 10px 0 7px;
-  position: relative;
-}
+
 
 .card-main__icon {
   color: #e17334;
   font-size: 18px;
-}
-
-.tex__ico-bar {
-  color: #54585a;
-  font-family: "Open Sans", sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding-left: 10px;
-}
-
-.ico__arrow-menu {
-  color: #54585a;
-  font-size: 18px;
-  position: absolute;
-  right: 0;
-}
-
-.ico__arrow--reverse-up {
-  -webkit-animation-name: reverse-up;
-  animation-name: reverse-up;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-.ico__arrow--reverse-down {
-  -webkit-animation-name: reverse-down;
-  animation-name: reverse-down;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
 }
 
 
@@ -442,41 +397,6 @@ fieldset {
   opacity: 0.3;
 }
 
-.card__header {
-  height: 111px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-.editor__logo {
-  background: url("/images/logo-card.svg") center center no-repeat;
-  height: 51px;
-  width: 201px;
-  background-size: cover;
-}
-
-.logo__wild {
-  background: url("/images/logo.png") center center no-repeat;
-  background-size: cover;
-  width: 130px;
-  height: 90px;
-}
-
-.tittle__hiden {
-  visibility: hidden;
-  width: 0px;
-  height: 0px;
-  margin: 0px;
-}
 
 .footer {
   display: -webkit-box;
@@ -510,43 +430,7 @@ fieldset {
 }
 
 @media all and (min-width: 768px) {
-  .home__container {
-    position: relative;
-  }
-
-  .home__logo {
-    width: 419px;
-    height: 107px;
-  }
-
-  .home__main {
-    margin-top: 31px;
-  }
-
-  .home__main--title {
-    font-size: 24px;
-  }
-
-  .home__main--text {
-    font-size: 16px;
-    width: 331px;
-    margin: 0 auto;
-  }
-
-  .home__options {
-    width: 325px;
-    padding: 15px 20px;
-    margin-bottom: 186px;
-  }
-
-  .home__link {
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    bottom: 59px;
-  }
-
+  
   .page__main {
     display: grid;
     grid-template-columns: 1fr 1fr;
