@@ -245,6 +245,8 @@ fieldset {
   color: #114e4e;
   margin-bottom: 10px;
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
 }
 
 .share_btn--container {
@@ -658,11 +660,14 @@ fieldset {
   padding-right: 40px;
 }
 
-.editor__logo {
-  background: url("/images/logo-card.svg") center center no-repeat;
+.editor__logo { 
   height: 51px;
   width: 201px;
-  background-size: cover;
+}
+
+.editor__logo-img{
+  height: 51px;
+  width: 201px;
 }
 
 .logo__wild {
