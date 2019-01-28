@@ -6,7 +6,8 @@ import Share from './Share';
 class Collapsibles extends Component {
   render() {
     return (
-      <form action="" method="get" className="container__form">
+      <form action="" method="get" className="container__form" ref={this.props.formReference} 
+      >
         <ul className="list__bar-menu">
           <Design 
             handleColourChange={this.props.handleColourChange}

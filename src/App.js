@@ -11,6 +11,7 @@ class App extends Component {
 
   constructor (props) {
     super(props);
+    this.formReference = React.createRef();
     this.state = {
       card: {},
       skillsApi:[],
@@ -41,7 +42,7 @@ class App extends Component {
     this.handleTypoChange = this.handleTypoChange.bind(this);
 
     this.addSkillorNot = this.addSkillorNot.bind(this);
-    this.reset=this.reset.bind(this);
+    this.resetButton=this.resetButton.bind(this);
 
  }
  
@@ -53,7 +54,7 @@ class App extends Component {
     
   }
 
-  reset(){
+  resetButton(){
     const resetCard= {
       name: "Nombre y apellidos",
       job: "Front end developer",
@@ -68,12 +69,13 @@ class App extends Component {
     }
    this.setState({
      card: resetCard,
-    //  hiddenE: true,
-    //   hiddenP: true,
-    //   hiddenS: true,
-    //   hiddenG: true,
-    //   hiddenL: true
+     hiddenE: true,
+      hiddenP: true,
+      hiddenS: true,
+      hiddenG: true,
+      hiddenL: true
    });
+   this.formReference.current.reset();
   
   }
 
@@ -254,8 +256,9 @@ class App extends Component {
         <Route exact path="/" component={Home}/>
         <Route path="/cards" render={
           () => <Cards 
+                  formReference={this.formReference} 
                   card = {this.state.card}
-                  reset ={this.reset}
+                  reset ={this.resetButton}
                   addSkillorNot={this.addSkillorNot}
                   handleKeyUpN={this.handleKeyUpN} 
                   handleKeyUpJ={this.handleKeyUpJ} 
