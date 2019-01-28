@@ -74,8 +74,22 @@ class App extends Component {
       hiddenS: true,
       hiddenG: true,
       hiddenL: true
+      
    });
    this.formReference.current.reset();
+   const resetStorage = {
+    name: "Nombre y apellidos",
+    job: "Front end developer",
+    email: "",
+    phone: "",
+    photo: DefaultImage,
+    linkedin: "",
+    github:"",
+    skills:[],
+    palette: 1,
+    typography: 2
+   };
+   localStorage.setItem('backup', JSON.stringify(resetStorage));
   
   }
 
