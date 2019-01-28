@@ -9,6 +9,9 @@ class Collapsibles extends Component {
       <form action="" method="get" className="container__form">
         <ul className="list__bar-menu">
           <Design 
+            card = {this.props.card}
+            colorSelected={this.props.colorSelected}
+            typoSelected={this.props.typoSelected}
             handleColourChange={this.props.handleColourChange}
             handleTypoChange={this.props.handleTypoChange}
             paletteValue={this.props.paletteValue}

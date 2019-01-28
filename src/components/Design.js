@@ -1,9 +1,51 @@
 import React, { Component } from 'react';
 
 class Design extends Component {
+    constructor(props){
+        super(props);
+        this.palette1 = React.createRef();
+        this.palette2 = React.createRef();
+        this.palette3 = React.createRef();
+        this.typography1 = React.createRef();
+        this.typography2 = React.createRef();
+        this.typography3 = React.createRef();
+    }
 
+    componentDidMount(){
+        this.colorChecked();
+        this.typoChecked();
+    }
 
+    colorChecked(){
+        const {colorSelected} =this.props;
+        const palette1 = this.palette1.current;
+        const palette2 = this.palette2.current;
+        const palette3 = this.palette3.current;
+        if(palette1.value === colorSelected){
+            palette1.checked=true;
+        }else if(palette2.value === colorSelected){
+            palette2.checked=true;
+        }else if(palette3.value === colorSelected){
+            palette3.checked=true;
+        }
+    }
+    
+    typoChecked(){
+        const {typoSelected} =this.props;
+        console.log(typoSelected);
+        const typography1= this.typography1.current;
+        console.log(typography1);
+        const typography2 = this.typography2.current;
+        const typography3 = this.typography3.current;
+        if(typography1.value === typoSelected){
+            typography1.checked=true;
+        }else if(typography2.value === typoSelected){
+            typography2.checked=true;
+        }else if(typography3.value === typoSelected){
+            typography3.checked=true;
+        }
 
+    }
     
 
     render (){
@@ -27,7 +69,7 @@ class Design extends Component {
                         <div className="container__radio-input">
                             <label htmlFor="palet__color-1" className="input__label">
                                 <input id="palet__color-1" type="radio" value="1" name="optionscolor"
-                                className="radio__button--color" defaultChecked={(this.props.paletteValue === 1) ? true : false} onChange={  this.props.handleColourChange}/>
+                                className="radio__button--color" ref={this.palette1} onChange={  this.props.handleColourChange}/>
                                 <div className="palet__color-squares">
                                     <div className="color color-1"></div>
                                     <div className="color color-2"></div>
@@ -38,7 +80,7 @@ class Design extends Component {
                     <div className="container__radio-input">
                         <label htmlFor="palet__color-2" className="input__label">
                             <input id="palet__color-2" type="radio" value="2" name="optionscolor"
-                            className="radio__button--color" defaultChecked={(this.props.paletteValue === 2) ? true : false}onChange={  this.props.handleColourChange}/>
+                            className="radio__button--color" ref={this.palette2} onChange={  this.props.handleColourChange}/>
                             <div className="palet__color-squares">
                                 <div className="color color-4"></div>
                                 <div className="color color-5"></div>
@@ -49,7 +91,7 @@ class Design extends Component {
                     <div className="container__radio-input">
                         <label htmlFor="palet__color-3" className="input__label">
                             <input id="palet__color-3" type="radio" value="3" name="optionscolor"
-                            className="radio__button--color" defaultChecked={(this.props.paletteValue === 3) ? true : false}onChange={  this.props.handleColourChange} />
+                            className="radio__button--color" ref={this.palette3} onChange={  this.props.handleColourChange} />
                             <div className="palet__color-squares">
                                 <div className="color color-7"></div>
                                 <div className="color color-8"></div>
@@ -63,21 +105,21 @@ class Design extends Component {
                         <div className="container__radio-input">
                             <label htmlFor="option__font-1" className="input__label">
                                 <input id="option__font-1" type="radio" className="typo__radio" value="1"
-                                name="optionsfont" defaultChecked onChange={  this.props.handleTypoChange}/>
+                                name="optionsfont" ref={this.typography1} onChange={  this.props.handleTypoChange}/>
                                 <div className="typo-1">Ubuntu</div>
                             </label>
                         </div>
                         <div className="container__radio-input">
                             <label htmlFor="radio__typo-2" className="input__label">
                                 <input id="option__font-2" type="radio" className="typo__radio" value="2"
-                                name="optionsfont" onChange={  this.props.handleTypoChange}/>
+                                name="optionsfont" ref={this.typography2} onChange={this.props.handleTypoChange}/>
                                 <div className="typo-2">Comic Sans</div>
                             </label>
                         </div>
                         <div className="container__radio-input">
                             <label htmlFor="radio__typo-3" className="input__label">
                                 <input id="option__font-3" type="radio" className="typo__radio" value="3"
-                                name="optionsfont" onChange={this.props.handleTypoChange}/>
+                                name="optionsfont" ref={this.typography3} onChange={this.props.handleTypoChange}/>
                                 <div className="typo-3">Montserrat</div>
                             </label>
                         </div>

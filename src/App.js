@@ -18,7 +18,7 @@ class App extends Component {
       hiddenP: true,
       hiddenS: true,
       hiddenG: true,
-      hiddenL: true
+      hiddenL: true,
     };
     
 
@@ -164,7 +164,7 @@ class App extends Component {
   handleColourChange(e) {
     const radioValue = parseInt(e.currentTarget.value);
     const {card} = this.state;
-    const newCard = {...card, palette: radioValue};
+    const newCard = {...card, palette: radioValue, colorSelected:radioValue};
 
     this.setState({ card: newCard });
     this.saveLastSearch(newCard);
@@ -173,7 +173,7 @@ class App extends Component {
   handleTypoChange(e) {
     const radioValue = parseInt(e.currentTarget.value);
     const {card} = this.state;
-    const newCard = {...card, typography: radioValue};
+    const newCard = {...card, typography: radioValue, typoSelected: radioValue};
 
     this.setState({ card: newCard });
     this.saveLastSearch(newCard);
@@ -256,6 +256,8 @@ class App extends Component {
                   cardData = {this.cardData}
                   contactIcons ={this.contactIcons}
 
+                  colorSelected={this.state.card.colorSelected}
+                  typoSelected={this.state.card.typoSelected}
                   paletteValue={this.state.card.palette}
                   typoValue={this.state.card.typography}
                   hiddenE={this.state.hiddenE}

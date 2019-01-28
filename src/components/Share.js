@@ -38,8 +38,7 @@ class Share extends Component {
                     <button className="btn__create-card" type="button" onClick={this.handleShare}><i className="far fa-id-card share__icon"></i>Crea tarjeta</button>
                     <div className="twitter__hidden share__twitter">
                         <div className="share__title">La tarjeta ha sido creada:</div>
-                        <a className="twitter-share-button" href={this.state.linkTwitter}
-                            target="_blank">
+                        <a className="twitter-share-button" href={this.state.linkTwitter}>
                             <i className="fab fa-twitter"></i>
                             <span className="twitter__text">
                                 Compartir en Twitter</span>
