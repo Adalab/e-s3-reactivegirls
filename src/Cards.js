@@ -16,6 +16,9 @@ class Cards extends Component {
         <main className="page__main">
           <Collapsibles
             formReference={this.props.formReference} 
+            designCollapsible={this.props.designCollapsible}
+            handleCollapsibles={this.props.handleCollapsibles}
+            hiddenDesign={this.props.hiddenDesign}
             card = {this.props.card}
             skillsApi={this.props.skillsApi}
             name={this.props.name}

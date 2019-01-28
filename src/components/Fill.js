@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 
 class Fill extends Component {
     
@@ -91,5 +92,33 @@ class Fill extends Component {
 </fieldset>);
   };
 };
+
+Fill.propTypes = {
+
+    handleKeyUpN: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    job: PropTypes.string.isRequired,
+    handleKeyUpJ: PropTypes.func.isRequired,
+    fileInput: PropTypes.object.isRequired,
+    handleChangeFile: PropTypes.func.isRequired,
+    fakeClick: PropTypes.func.isRequired,
+    img: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    handleKeyUpE: PropTypes.func.isRequired,
+    phone: PropTypes.string.isRequired,
+    handleKeyUpP: PropTypes.func.isRequired,
+    linkedin: PropTypes.string.isRequired,
+    handleKeyUpL: PropTypes.func.isRequired,
+    github: PropTypes.string.isRequired,
+    handleKeyUpG: PropTypes.func.isRequired,
+    addSkillorNot: PropTypes.func.isRequired
+    };
+
+
+
+
+
+
+
 
 export default Fill;

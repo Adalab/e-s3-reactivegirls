@@ -12,6 +12,7 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.formReference = React.createRef();
+    this.designCollapsible = React.createRef();
     this.state = {
       card: {},
       skillsApi:[],
@@ -19,7 +20,8 @@ class App extends Component {
       hiddenP: true,
       hiddenS: true,
       hiddenG: true,
-      hiddenL: true
+      hiddenL: true,
+      hiddenDesign: true
     };
     
 
@@ -43,6 +45,8 @@ class App extends Component {
 
     this.addSkillorNot = this.addSkillorNot.bind(this);
     this.resetButton=this.resetButton.bind(this);
+
+    this.handleCollapsibles = this.handleCollapsibles.bind(this);
 
  }
  
@@ -263,6 +267,17 @@ class App extends Component {
       });
   }
 
+
+  handleCollapsibles() {
+  const hiddenStatus = (this.designCollapsible.current.className === 'hidden')? true :
+  false;
+
+  this.setState({
+  hiddenDesign: hiddenStatus });
+}
+  
+  
+
   render() {
    
     return (
@@ -271,6 +286,9 @@ class App extends Component {
         <Route path="/cards" render={
           () => <Cards 
                   formReference={this.formReference} 
+                  designCollapsible={this.designCollapsible}
+                  handleCollapsibles={this.handleCollapsibles}
+                  hiddenDesign={this.state.hiddenDesign}
                   card = {this.state.card}
                   reset ={this.resetButton}
                   addSkillorNot={this.addSkillorNot}

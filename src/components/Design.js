@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 
+
 class Design extends Component {
 
-
-
-    
+    visibility(){
+        const hiddenClass = (this.props.hiddenDesign === true) ? 'hidden' : 'NO-hidden';
+        return hiddenClass;
+    }
 
     render (){
-      
 
         return(
             <fieldset className="form__design form__fieldset">
-                <li className="bar__menu-card">
+                <li className="bar__menu-card" onClick={this.props.handleCollapsibles}>
                     <div className="wrapper__bar-menu">
                         <div className="ico__bar"></div> 
                         <i className="card-main__icon far fa-keyboard"></i>
@@ -21,7 +22,7 @@ class Design extends Component {
                         </div>
                     </div>
                 </li>
-                <div className="container__radios">
+                <div className={`container__radios ${this.visibility()}`} ref={this.props.designCollapsible}>
                     <div className="radio__color">
                         <h4 className="radio__titles">Colores</h4>
                         <div className="container__radio-input">
@@ -70,7 +71,7 @@ class Design extends Component {
                         <div className="container__radio-input">
                             <label htmlFor="radio__typo-2" className="input__label">
                                 <input id="option__font-2" type="radio" className="typo__radio" value="2"
-                                name="optionsfont" onChange={  this.props.handleTypoChange}/>
+                                name="optionsfont" onChange={this.props.handleTypoChange}/>
                                 <div className="typo-2">Comic Sans</div>
                             </label>
                         </div>
@@ -88,4 +89,7 @@ class Design extends Component {
         );
     }
 }
+
+
+
 export default Design;
