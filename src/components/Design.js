@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 class Design extends Component {
 
 
-
-    
-
     render (){
       
 
@@ -49,7 +46,7 @@ class Design extends Component {
                     <div className="container__radio-input">
                         <label htmlFor="palet__color-3" className="input__label">
                             <input id="palet__color-3" type="radio" value="3" name="optionscolor"
-                            className="radio__button--color" defaultChecked={(this.props.paletteValue === 3) ? true : false}onChange={  this.props.handleColourChange} />
+                            className="radio__button--color" defaultChecked={(this.props.paletteValue === 3) ? true : false} onChange={  this.props.handleColourChange} />
                             <div className="palet__color-squares">
                                 <div className="color color-7"></div>
                                 <div className="color color-8"></div>
@@ -88,4 +85,10 @@ class Design extends Component {
         );
     }
 }
+
+Design.propTypes = {
+    paletteValue: PropTypes.number,
+    handleColourChange: PropTypes.func,
+    handleTypoChange: PropTypes.func
+};
 export default Design;

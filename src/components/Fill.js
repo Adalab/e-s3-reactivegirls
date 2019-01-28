@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
+
 
 class Fill extends Component {
     
@@ -91,5 +93,26 @@ class Fill extends Component {
 </fieldset>);
   };
 };
+
+Fill.propTypes = {
+    name: PropTypes.string,
+    job: PropTypes.string,
+    img: PropTypes.string,
+    skillsApi: PropTypes.array,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    github: PropTypes.string,
+    linkedin: PropTypes.string,
+    handleKeyUpN: PropTypes.func,
+    handleKeyUpJ: PropTypes.func,
+    fileInput: PropTypes.object,
+    handleChangeFile: PropTypes.func,
+    fakeClick: PropTypes.func,
+    handleKeyUpE: PropTypes.func,
+    handleKeyUpP: PropTypes.func,
+    handleKeyUpL: PropTypes.func,
+    handleKeyUpG: PropTypes.func,
+    addSkillorNot: PropTypes.func
+      };
 
 export default Fill;
