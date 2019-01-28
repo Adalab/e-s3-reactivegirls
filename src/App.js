@@ -11,6 +11,7 @@ class App extends Component {
 
   constructor (props) {
     super(props);
+    this.formReference = React.createRef();
     this.state = {
       card: {},
       skillsApi:[],
@@ -41,6 +42,7 @@ class App extends Component {
     this.handleTypoChange = this.handleTypoChange.bind(this);
 
     this.addSkillorNot = this.addSkillorNot.bind(this);
+    this.resetButton=this.resetButton.bind(this);
 
  }
  
@@ -51,6 +53,46 @@ class App extends Component {
     this.getSkillsApi();
     
   }
+
+  resetButton(){
+    const resetCard= {
+      name: "Nombre y apellidos",
+      job: "Front end developer",
+      email: "",
+      phone: "",
+      photo: DefaultImage,
+      linkedin: "",
+      github:"",
+      skills:[],
+      palette: 1,
+      typography: 2
+    }
+   this.setState({
+     card: resetCard,
+     hiddenE: true,
+      hiddenP: true,
+      hiddenS: true,
+      hiddenG: true,
+      hiddenL: true
+      
+   });
+   this.formReference.current.reset();
+   const resetStorage = {
+    name: "Nombre y apellidos",
+    job: "Front end developer",
+    email: "",
+    phone: "",
+    photo: DefaultImage,
+    linkedin: "",
+    github:"",
+    skills:[],
+    palette: 1,
+    typography: 2
+   };
+   localStorage.setItem('backup', JSON.stringify(resetStorage));
+  
+  }
+
 
   saveLastSearch(value){
     localStorage.setItem('backup', JSON.stringify(value))
@@ -228,7 +270,9 @@ class App extends Component {
         <Route exact path="/" component={Home}/>
         <Route path="/cards" render={
           () => <Cards 
+                  formReference={this.formReference} 
                   card = {this.state.card}
+                  reset ={this.resetButton}
                   addSkillorNot={this.addSkillorNot}
                   handleKeyUpN={this.handleKeyUpN} 
                   handleKeyUpJ={this.handleKeyUpJ} 
