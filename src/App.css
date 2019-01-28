@@ -658,11 +658,14 @@ fieldset {
   padding-right: 40px;
 }
 
-.editor__logo {
-  background: url("/images/logo-card.svg") center center no-repeat;
+.editor__logo { 
   height: 51px;
   width: 201px;
-  background-size: cover;
+}
+
+.editor__logo-img{
+  height: 51px;
+  width: 201px;
 }
 
 .logo__wild {
