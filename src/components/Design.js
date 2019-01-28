@@ -17,16 +17,21 @@ class Design extends Component {
     }
 
     colorChecked(){
-        const {colorSelected} =this.props;
+    
+        const {colorSelected} = this.props;
         const palette1 = this.palette1.current;
         const palette2 = this.palette2.current;
         const palette3 = this.palette3.current;
-        if(palette1.value === colorSelected){
-            palette1.checked=true;
-        }else if(palette2.value === colorSelected){
+  
+        if(parseInt(palette1.defaultValue) === parseInt(colorSelected)){
+            palette1.checked = true;
+            console.log(palette1)
+        }else if(palette2.defaultValue === colorSelected){
             palette2.checked=true;
-        }else if(palette3.value === colorSelected){
+            console.log(palette2)
+        }else if(palette3.defaultValue === colorSelected){
             palette3.checked=true;
+            console.log(palette3)
         }
     }
     
@@ -68,8 +73,8 @@ class Design extends Component {
                         <h4 className="radio__titles">Colores</h4>
                         <div className="container__radio-input">
                             <label htmlFor="palet__color-1" className="input__label">
-                                <input id="palet__color-1" type="radio" value="1" name="optionscolor"
-                                className="radio__button--color" ref={this.palette1} onChange={  this.props.handleColourChange}/>
+                                <input id="palet__color-1" type="radio" value="1" name="optionscolor" defaultChecked
+                                className="radio__button--color" ref={this.palette1} onChange={this.props.handleColourChange}/>
                                 <div className="palet__color-squares">
                                     <div className="color color-1"></div>
                                     <div className="color color-2"></div>
@@ -112,7 +117,7 @@ class Design extends Component {
                         <div className="container__radio-input">
                             <label htmlFor="radio__typo-2" className="input__label">
                                 <input id="option__font-2" type="radio" className="typo__radio" value="2"
-                                name="optionsfont" ref={this.typography2} onChange={this.props.handleTypoChange}/>
+                                name="optionsfont" ref={this.typography2} defaultChecked onChange={this.props.handleTypoChange}/>
                                 <div className="typo-2">Comic Sans</div>
                             </label>
                         </div>
