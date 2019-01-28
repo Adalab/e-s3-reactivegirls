@@ -39,16 +39,21 @@ class Collapsibles extends Component {
             handleKeyUpL={this.props.handleKeyUpL}
             handleKeyUpG={this.props.handleKeyUpG}
 
-
             handleChangeFile={this.props.handleChangeFile}
             fakeClick={this.props.fakeClick}
             img={this.props.img}
             fileInput={this.props.fileInput}
             
             addSkillorNot = {this.props.addSkillorNot}
+
+            handleFillCollapsibles = {this.props.handleFillCollapsibles}
+            hiddenFill={this.props.hiddenFill}
             />
           <Share
             card = {this.props.card}
+              
+            handleShareCollapsibles = {this.props.handleShareCollapsibles}
+            hiddenShare={this.props.hiddenShare}
           />
         </ul>
       </form>

@@ -12,7 +12,6 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.formReference = React.createRef();
-    this.designCollapsible = React.createRef();
     this.state = {
       card: {},
       skillsApi:[],
@@ -21,7 +20,9 @@ class App extends Component {
       hiddenS: true,
       hiddenG: true,
       hiddenL: true,
-      hiddenDesign: true
+      hiddenDesign: true,
+      hiddenFill: true,
+      hiddenShare: true
     };
     
 
@@ -46,7 +47,9 @@ class App extends Component {
     this.addSkillorNot = this.addSkillorNot.bind(this);
     this.resetButton=this.resetButton.bind(this);
 
-    this.handleCollapsibles = this.handleCollapsibles.bind(this);
+    this.handleDesignCollapsibles = this.handleDesignCollapsibles.bind(this);
+    this.handleShareCollapsibles = this.handleShareCollapsibles.bind(this);
+    this.handleFillCollapsibles = this.handleFillCollapsibles.bind(this);
 
  }
  
@@ -268,13 +271,29 @@ class App extends Component {
   }
 
 
-  handleCollapsibles() {
-  const hiddenStatus = (this.designCollapsible.current.className === 'hidden')? true :
-  false;
+  handleDesignCollapsibles() {
+    const hiddenStatus = (this.state.hiddenDesign === true)? false :
+    true;
 
-  this.setState({
-  hiddenDesign: hiddenStatus });
-}
+    this.setState({
+    hiddenDesign: hiddenStatus });
+  }
+
+  handleFillCollapsibles() {
+    const hiddenStatus = (this.state.hiddenFill === true)? false :
+    true;
+
+    this.setState({
+    hiddenFill: hiddenStatus });
+  }
+
+  handleShareCollapsibles() {
+    const hiddenStatus = (this.state.hiddenShare === true)? false :
+    true;
+
+    this.setState({
+    hiddenShare: hiddenStatus });
+  }
   
   
 
@@ -286,9 +305,12 @@ class App extends Component {
         <Route path="/cards" render={
           () => <Cards 
                   formReference={this.formReference} 
-                  designCollapsible={this.designCollapsible}
-                  handleCollapsibles={this.handleCollapsibles}
+                  handleCollapsibles={this.handleDesignCollapsibles}
                   hiddenDesign={this.state.hiddenDesign}
+                  hiddenFill={this.state.hiddenFill}
+                  hiddenShare={this.state.hiddenShare}
+                  handleFillCollapsibles = {this.handleFillCollapsibles}
+                  handleShareCollapsibles = {this.handleShareCollapsibles}
                   card = {this.state.card}
                   reset ={this.resetButton}
                   addSkillorNot={this.addSkillorNot}

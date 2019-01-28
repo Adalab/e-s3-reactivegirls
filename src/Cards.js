@@ -18,7 +18,12 @@ class Cards extends Component {
             formReference={this.props.formReference} 
             designCollapsible={this.props.designCollapsible}
             handleCollapsibles={this.props.handleCollapsibles}
+            handleFillCollapsibles = {this.props.handleFillCollapsibles}
+            handleShareCollapsibles = {this.props.handleShareCollapsibles}
             hiddenDesign={this.props.hiddenDesign}
+            hiddenFill={this.props.hiddenFill}
+            hiddenShare={this.props.hiddenShare}
+                  
             card = {this.props.card}
             skillsApi={this.props.skillsApi}
             name={this.props.name}

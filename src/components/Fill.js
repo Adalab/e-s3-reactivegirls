@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 
 class Fill extends Component {
+
+    visibility(){
+        const hiddenClass = (this.props.hiddenFill === true) ? 'hidden' : 'NO-hidden';
+        return hiddenClass;
+    }
     
 
   render() {
 
     return(<fieldset className="form__personal-data form__fieldset">
-    <li className="bar__menu-card">
+    <li className="bar__menu-card" onClick={this.props.handleFillCollapsibles}>
         <div className="wrapper__bar-menu">
             <div className="ico__bar"></div> <i className="card-main__icon far fa-object-ungroup"></i>
 
@@ -17,7 +22,7 @@ class Fill extends Component {
             </div>
         </div>
     </li>
-    <div className="container__fill">
+    <div className={`container__fill ${this.visibility()}`}>
         <div className="fill__title--form fill__full-name">
             <label className="fill__label" htmlFor="fullName">Nombre completo
                 <input className="block" id="fullName" type="text" 
