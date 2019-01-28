@@ -1,4 +1,17 @@
 @import './styleSheets/_Home.scss';
+
+@import './styleSheets/_Header.scss';
+@import './styleSheets/_CardViewer.scss';
+@import './styleSheets/_Collapsibles.scss';
+@import './styleSheets/_Home.scss';
+@import './styleSheets/_Cards.scss';
+@import './styleSheets/_Design.scss';
+@import './styleSheets/_Fill.scss';
+@import './styleSheets/_Footer.scss';
+@import './styleSheets/_PContact.scss';
+@import './styleSheets/_PPicture.scss';
+@import './styleSheets/_PSkills.scss';
+@import './styleSheets/_PTitle.scss';
 @import './styleSheets/_Share.scss';
 @import './styleSheets/_ButtonReset.scss';
 * {
@@ -336,27 +349,7 @@ fieldset {
   border-left: solid 5px #a0c0cf;
 }
 
-.card__data-name {
-  margin-bottom: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  font-stretch: normal;
-  line-height: 20px;
-  text-transform: capitalize;
-}
 
-.card__data-job {
-  font-size: 16px;
-  line-height: 20px;
-  color: #54585a;
-}
-
-.card__img {
-  width: 240px;
-  height: 200px;
-  background: url("/images/lobo.jpg") top center no-repeat;
-  background-size: cover;
-}
 
 .card__contact {
   display: -webkit-box;
@@ -510,42 +503,6 @@ fieldset {
 }
 
 @media all and (min-width: 768px) {
-  .home__container {
-    position: relative;
-  }
-
-  .home__logo {
-    width: 419px;
-    height: 107px;
-  }
-
-  .home__main {
-    margin-top: 31px;
-  }
-
-  .home__main--title {
-    font-size: 24px;
-  }
-
-  .home__main--text {
-    font-size: 16px;
-    width: 331px;
-    margin: 0 auto;
-  }
-
-  .home__options {
-    width: 325px;
-    padding: 15px 20px;
-    margin-bottom: 186px;
-  }
-
-  .home__link {
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    bottom: 59px;
-  }
 
   .page__main {
     display: grid;
