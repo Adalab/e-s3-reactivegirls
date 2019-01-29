@@ -23,6 +23,10 @@
       padding-left: 10px;
     }
     
+    .bar__menu-card {
+      cursor: pointer;
+    }
+    
     .ico__arrow-menu {
       color: #54585a;
       font-size: 18px;
@@ -51,5 +55,55 @@
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
     }
+
+
+@-webkit-keyframes reverse-up {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes reverse-up {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+@-webkit-keyframes reverse-down {
+  from {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  to {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes reverse-down {
+  from {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  to {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
     
     

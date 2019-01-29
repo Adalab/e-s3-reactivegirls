@@ -1,48 +1,45 @@
-import React, { Component } from 'react';
-
-class PContact extends Component {
-    render() {
-        const {email, phone,github,linkedin} = this.props;
-        const toEmail = `mailto:${email}`
-        const toPhone = `tel:${phone}`
-        const toGithub = `https://www.linkedin.com/in/${github}`
-        const toLinkedin = `https://github.com/${linkedin}`
-
-        const hiddenClassE = (this.props.hiddenE === true) ? 'hidden' : 'NO-hidden';
-        const hiddenClassP = (this.props.hiddenP === true) ? 'hidden' : 'NO-hidden';
-        const hiddenClassL = (this.props.hiddenL === true) ? 'hidden' : 'NO-hidden';
-        const hiddenClassG = (this.props.hiddenG === true) ? 'hidden' : 'NO-hidden';
-
-
-
-
-        return (
-            <div className="list__card-contact">
-                <ul className="card__contact">
-                    <li id="icon__phone" className={`contact-icons contact-icons__color${this.props.paletteValue} ${hiddenClassP}`} ref={this.props.contactIcons}>
-                        <a href={toPhone}>
-                            <i className="fas fa-mobile-alt"></i>
-                        </a>
-                    </li>
-                    <li id="icon__email" className={`contact-icons contact-icons__color${this.props.paletteValue} ${hiddenClassE}`}>
-                        <a href={toEmail}>
-                            <i className="far fa-envelope"></i>
-                        </a>
-                    </li>
-                    <li id="icon__linkedin" className={`contact-icons contact-icons__color${this.props.paletteValue} ${hiddenClassL}`}>
-                        <a href={toLinkedin}>
-                            <i className="fab fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                    <li id="icon__github" className={`contact-icons contact-icons__color${this.props.paletteValue} ${hiddenClassG}`}>
-                        <a href={toGithub}>
-                            <i className="fab fa-github-alt"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        );
-
-    }
-}
-export default PContact;
+.card__contact {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    margin: 0;
+    padding: 10px 20px;
+    border-bottom: 2px solid rgba(67, 135, 146, 0.2);
+    min-height: 32px;
+  }
+  .contact-icons {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    font-size: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .contact-icons__color1 {
+    color: #114e4e;
+    border: solid 2px #a2deaf;
+  }
+  
+  .contact-icons__color2 {
+    color: #420101;
+    border: solid 2px #e95626;
+  }
+  
+  .contact-icons__color3 {
+    color: #3e5b65;
+    border: solid 2px #a0c0cf;
+  }
+  
+  
