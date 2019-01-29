@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Cards from './Cards';
-import './App.css';
+import './App.scss';
 import DefaultImage from './images/lobo.jpg';
 import {fetchSkills} from './services/GetSkills';
 const fr = new FileReader();
