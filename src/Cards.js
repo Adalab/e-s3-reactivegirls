@@ -4,7 +4,7 @@ import Collapsibles from './components/Collapsibles';
 import CardViewer from './components/CardViewer';
 import Footer from './components/Footer';
 
-import './App.css';
+import './App.scss';
 
 class Cards extends Component {
 
@@ -33,7 +33,8 @@ class Cards extends Component {
             linkedin={this.props.linkedin}
             github={this.props.github}
 
-
+            colorSelected={this.props.colorSelected}
+            typoSelected={this.props.typoSelected}
             handleKeyUpJ={this.props.handleKeyUpJ}
             handleKeyUpN={this.props.handleKeyUpN}
             handleKeyUpE={this.props.handleKeyUpE}
@@ -86,4 +87,6 @@ class Cards extends Component {
     );
   }
 }
+
+
 export default Cards;

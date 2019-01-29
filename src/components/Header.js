@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import EditorLogo from './../images/logo-card.svg';
+import {Link} from 'react-router-dom';
 
 
 class Header extends Component {
     render () {
         return (
             <header className="card__header"> 
-                <a href="index.html">
-                    <div className="editor__logo" style={{backgroundImage: {EditorLogo}}}>
+                
+                <Link to="/">
+                    <div className="editor__logo">
                         <h1 className="tittle__hiden">Crea tu tarjeta de visita</h1>
                     </div>
-                </a>
+                </Link>
                 <div className="logo__wild">
                 </div>
             </header>

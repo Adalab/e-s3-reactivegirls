@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
+
 
 
 class PSkills extends Component {
@@ -36,4 +38,10 @@ class PSkills extends Component {
 
     }
 }
+
+PSkills.propTypes = {
+    hiddenS: PropTypes.bool, 
+    skills: PropTypes.array, 
+    paletteValue: PropTypes.number, 
+      };
 export default PSkills;

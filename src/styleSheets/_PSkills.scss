@@ -1,0 +1,33 @@
+.card__skills {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    padding: 10px 15px;
+    margin: 0;
+  }
+  
+  .card__skills-item {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 0 5px;
+    margin-right: 5px;
+    border-radius: 4px;
+  }
+  
+
+
+.card__skills-item__color1 {
+    background-color: #438792;
+  }
+  
+  .card__skills-item__color2 {
+    background-color: #bd1010;
+  }
+  
+  .card__skills-item__color3 {
+    background-color: #dfe5eb;
+  }
+  

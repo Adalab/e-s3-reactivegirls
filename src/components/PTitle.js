@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
+
 
 class PTitle extends Component {
     render(){
@@ -13,4 +15,12 @@ class PTitle extends Component {
 
     }
 }
+
+PTitle.propTypes = {
+    paletteValue: PropTypes.number,  
+    typoValue: PropTypes.number,  
+    cardData: PropTypes.object,  
+    name: PropTypes.string,  
+    job: PropTypes.string,  
+      };
 export default PTitle;

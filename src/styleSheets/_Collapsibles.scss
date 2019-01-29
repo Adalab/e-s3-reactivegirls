@@ -1,54 +1,109 @@
-import React, { Component } from 'react';
-import Design from './Design';
-import Fill from './Fill';
-import Share from './Share';
+    .form__fieldset {
+      border-bottom: 1px solid #d8d8d8;
+      padding-bottom: 30px;
+    }
 
-class Collapsibles extends Component {
-  render() {
-    return (
-      <form action="" method="get" className="container__form" ref={this.props.formReference} 
-      >
-        <ul className="list__bar-menu">
-          <Design 
-            handleColourChange={this.props.handleColourChange}
-            handleTypoChange={this.props.handleTypoChange}
-            paletteValue={this.props.paletteValue}
-            typoValue={this.props.typoValue}
-            
-            cardData = {this.props.cardData}
-            contactIcons ={this.props.contactIcons}
-            
-            />
-          <Fill
-            skillsApi={this.props.skillsApi}
-            name={this.props.name}
-            job={this.props.job}
-            email={this.props.email}
-            phone={this.props.phone}
-            linkedin={this.props.linkedin}
-            github={this.props.github}
+    .wrapper__bar-menu {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 10px 0 7px;
+      position: relative;
+    }
 
-            handleKeyUpJ={this.props.handleKeyUpJ}
-            handleKeyUpN={this.props.handleKeyUpN}
-            handleKeyUpE={this.props.handleKeyUpE}
-            handleKeyUpP={this.props.handleKeyUpP}
-            handleKeyUpL={this.props.handleKeyUpL}
-            handleKeyUpG={this.props.handleKeyUpG}
+    .tex__ico-bar {
+      color: #54585a;
+      font-family: "Open Sans", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-left: 10px;
+    }
+    
+    .bar__menu-card {
+      cursor: pointer;
+    }
+    
+    .ico__arrow-menu {
+      color: #54585a;
+      font-size: 18px;
+      position: absolute;
+      right: 0;
+    }
+    
+    .ico__arrow--reverse-up {
+      -webkit-animation-name: reverse-up;
+      animation-name: reverse-up;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-iteration-count: 1;
+      animation-iteration-count: 1;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+    }
+    
+    .ico__arrow--reverse-down {
+      -webkit-animation-name: reverse-down;
+      animation-name: reverse-down;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-iteration-count: 1;
+      animation-iteration-count: 1;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+    }
 
 
-            handleChangeFile={this.props.handleChangeFile}
-            fakeClick={this.props.fakeClick}
-            img={this.props.img}
-            fileInput={this.props.fileInput}
-            
-            addSkillorNot = {this.props.addSkillorNot}
-            />
-          <Share
-            card = {this.props.card}
-          />
-        </ul>
-      </form>
-    );
+@-webkit-keyframes reverse-up {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
   }
 }
-export default Collapsibles;
+
+@keyframes reverse-up {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+@-webkit-keyframes reverse-down {
+  from {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  to {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes reverse-down {
+  from {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  to {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+    
+    

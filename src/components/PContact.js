@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
+
 
 class PContact extends Component {
     render() {
@@ -45,4 +47,16 @@ class PContact extends Component {
 
     }
 }
+
+PContact.propTypes = {
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    github: PropTypes.string,
+    linkedin: PropTypes.string,
+    hiddenE: PropTypes.bool.isRequired,
+    hiddenP: PropTypes.bool.isRequired,
+    hiddenL: PropTypes.bool.isRequired,
+    hiddenG: PropTypes.bool.isRequired,
+    paletteValue: PropTypes.number
+};
 export default PContact;
