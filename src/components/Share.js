@@ -34,12 +34,17 @@ class Share extends Component {
         }
     }
 
+    visibility(){
+        const hiddenClass = (this.props.hiddenShare === true) ? 'hidden' : 'NO-hidden';
+        return hiddenClass;
+    }
+
     render() {
         const hiddenClassT = (this.state.hiddenT ===true) ?'twitter__hidden': 'NO-hidden';
 
         return (
             <fieldset className="form__share form__fieldset">
-                <li className="bar__menu-card">
+                <li className="bar__menu-card" onClick={this.props.handleShareCollapsibles}>
                     <div className="wrapper__bar-menu">
                         <div className="ico__bar"></div>
                         <i className="fas fa-share-alt card-main__icon"></i>
@@ -48,7 +53,7 @@ class Share extends Component {
                         </div>
                     </div>
                 </li>
-                <div className="share_btn--container">
+                <div className={`share_btn--container ${this.visibility()}`}>
                     <button className="btn__create-card" type="button" onClick={this.handleShare}><i className="far fa-id-card share__icon"></i>Crea tarjeta</button>
                     <div className={`${hiddenClassT} share__twitter`}>
                         <div className="share__title">La tarjeta ha sido creada:</div>

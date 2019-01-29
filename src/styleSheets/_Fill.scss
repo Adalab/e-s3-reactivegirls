@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
-import PropTypes from "prop-types";
-
 
 class Fill extends Component {
-
-    visibility(){
-        const hiddenClass = (this.props.hiddenFill === true) ? 'hidden' : 'NO-hidden';
-        return hiddenClass;
-    }
     
 
   render() {
 
     return(<fieldset className="form__personal-data form__fieldset">
-    <li className="bar__menu-card" onClick={this.props.handleFillCollapsibles}>
+    <li className="bar__menu-card">
         <div className="wrapper__bar-menu">
             <div className="ico__bar"></div> <i className="card-main__icon far fa-object-ungroup"></i>
 
@@ -23,7 +16,7 @@ class Fill extends Component {
             </div>
         </div>
     </li>
-    <div className={`container__fill ${this.visibility()}`}>
+    <div className="container__fill">
         <div className="fill__title--form fill__full-name">
             <label className="fill__label" htmlFor="fullName">Nombre completo
                 <input className="block" id="fullName" type="text" 
@@ -98,26 +91,5 @@ class Fill extends Component {
 </fieldset>);
   };
 };
-
-Fill.propTypes = {
-    name: PropTypes.string,
-    job: PropTypes.string,
-    img: PropTypes.string,
-    skillsApi: PropTypes.array,
-    email: PropTypes.string,
-    phone: PropTypes.string,
-    github: PropTypes.string,
-    linkedin: PropTypes.string,
-    handleKeyUpN: PropTypes.func,
-    handleKeyUpJ: PropTypes.func,
-    fileInput: PropTypes.object,
-    handleChangeFile: PropTypes.func,
-    fakeClick: PropTypes.func,
-    handleKeyUpE: PropTypes.func,
-    handleKeyUpP: PropTypes.func,
-    handleKeyUpL: PropTypes.func,
-    handleKeyUpG: PropTypes.func,
-    addSkillorNot: PropTypes.func
-      };
 
 export default Fill;

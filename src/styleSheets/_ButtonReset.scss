@@ -1,0 +1,30 @@
+.btn__bar {
+  width: 240px;
+}
+
+.btn__reset {
+  background-color: transparent;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #ffffff;
+  margin: 10px auto 20px;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #54585a;
+  outline: none;
+  cursor: pointer;
+}
+.ico__reset-img {
+    display: inline-block;
+    padding-right: 10px;
+  }
+  
+  .ico__reset-text {
+    display: inline-block;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+  }
+  

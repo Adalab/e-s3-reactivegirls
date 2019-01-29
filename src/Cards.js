@@ -15,6 +15,15 @@ class Cards extends Component {
         <Header />
         <main className="page__main">
           <Collapsibles
+            formReference={this.props.formReference} 
+            designCollapsible={this.props.designCollapsible}
+            handleCollapsibles={this.props.handleCollapsibles}
+            handleFillCollapsibles = {this.props.handleFillCollapsibles}
+            handleShareCollapsibles = {this.props.handleShareCollapsibles}
+            hiddenDesign={this.props.hiddenDesign}
+            hiddenFill={this.props.hiddenFill}
+            hiddenShare={this.props.hiddenShare}
+                  
             card = {this.props.card}
             skillsApi={this.props.skillsApi}
             name={this.props.name}
@@ -48,6 +57,7 @@ class Cards extends Component {
             />
 
           <CardViewer
+            reset={this.props.reset}
             skills={this.props.skills}
             name={this.props.name}
             job={this.props.job}

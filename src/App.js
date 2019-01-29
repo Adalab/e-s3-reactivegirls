@@ -11,6 +11,7 @@ class App extends Component {
 
   constructor (props) {
     super(props);
+    this.formReference = React.createRef();
     this.state = {
       card: {},
       skillsApi:[],
@@ -19,6 +20,9 @@ class App extends Component {
       hiddenS: true,
       hiddenG: true,
       hiddenL: true,
+      hiddenDesign: true,
+      hiddenFill: true,
+      hiddenShare: true
     };
     
 
@@ -41,6 +45,11 @@ class App extends Component {
     this.handleTypoChange = this.handleTypoChange.bind(this);
 
     this.addSkillorNot = this.addSkillorNot.bind(this);
+    this.resetButton=this.resetButton.bind(this);
+
+    this.handleDesignCollapsibles = this.handleDesignCollapsibles.bind(this);
+    this.handleShareCollapsibles = this.handleShareCollapsibles.bind(this);
+    this.handleFillCollapsibles = this.handleFillCollapsibles.bind(this);
 
  }
  
@@ -51,6 +60,46 @@ class App extends Component {
     this.getSkillsApi();
     
   }
+
+  resetButton(){
+    const resetCard= {
+      name: "Nombre y apellidos",
+      job: "Front end developer",
+      email: "",
+      phone: "",
+      photo: DefaultImage,
+      linkedin: "",
+      github:"",
+      skills:[],
+      palette: 1,
+      typography: 2
+    }
+   this.setState({
+     card: resetCard,
+     hiddenE: true,
+      hiddenP: true,
+      hiddenS: true,
+      hiddenG: true,
+      hiddenL: true
+      
+   });
+   this.formReference.current.reset();
+   const resetStorage = {
+    name: "Nombre y apellidos",
+    job: "Front end developer",
+    email: "",
+    phone: "",
+    photo: DefaultImage,
+    linkedin: "",
+    github:"",
+    skills:[],
+    palette: 1,
+    typography: 2
+   };
+   localStorage.setItem('backup', JSON.stringify(resetStorage));
+  
+  }
+
 
   saveLastSearch(value){
     localStorage.setItem('backup', JSON.stringify(value))
@@ -221,6 +270,33 @@ class App extends Component {
       });
   }
 
+
+  handleDesignCollapsibles() {
+    const hiddenStatus = (this.state.hiddenDesign === true)? false :
+    true;
+
+    this.setState({
+    hiddenDesign: hiddenStatus });
+  }
+
+  handleFillCollapsibles() {
+    const hiddenStatus = (this.state.hiddenFill === true)? false :
+    true;
+
+    this.setState({
+    hiddenFill: hiddenStatus });
+  }
+
+  handleShareCollapsibles() {
+    const hiddenStatus = (this.state.hiddenShare === true)? false :
+    true;
+
+    this.setState({
+    hiddenShare: hiddenStatus });
+  }
+  
+  
+
   render() {
    
     return (
@@ -228,7 +304,15 @@ class App extends Component {
         <Route exact path="/" component={Home}/>
         <Route path="/cards" render={
           () => <Cards 
+                  formReference={this.formReference} 
+                  handleCollapsibles={this.handleDesignCollapsibles}
+                  hiddenDesign={this.state.hiddenDesign}
+                  hiddenFill={this.state.hiddenFill}
+                  hiddenShare={this.state.hiddenShare}
+                  handleFillCollapsibles = {this.handleFillCollapsibles}
+                  handleShareCollapsibles = {this.handleShareCollapsibles}
                   card = {this.state.card}
+                  reset ={this.resetButton}
                   addSkillorNot={this.addSkillorNot}
                   handleKeyUpN={this.handleKeyUpN} 
                   handleKeyUpJ={this.handleKeyUpJ} 

@@ -7,7 +7,9 @@ class CardViewer extends Component {
         
         return (
             <div className="container__card-editor">
-                <ButtonReset />
+                <ButtonReset 
+                    reset={this.props.reset}
+                                    />
                 <PreviewCard
                     skills={this.props.skills}
                     name={this.props.name}

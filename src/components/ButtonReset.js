@@ -4,7 +4,7 @@ class ButtonReset extends Component{
     render (){
         return(
             <div className="btn__bar">
-                <button className="btn__reset" type="button">
+                <button className="btn__reset" type="button" onClick={this.props.reset}>
                     <div className="ico__reset-img">
                         <i className="far fa-trash-alt"></i>
                     </div>
