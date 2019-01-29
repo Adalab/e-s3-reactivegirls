@@ -4,7 +4,7 @@ import Collapsibles from './components/Collapsibles';
 import CardViewer from './components/CardViewer';
 import Footer from './components/Footer';
 
-import './App.css';
+import './App.scss';
 
 class Cards extends Component {
 

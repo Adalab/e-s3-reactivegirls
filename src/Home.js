@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './images/logo-card.svg';
 import logoAdalab from './images/logo-adalab.png';
-import './App.css';
+import './App.scss';
 
 
 class Home extends Component {
