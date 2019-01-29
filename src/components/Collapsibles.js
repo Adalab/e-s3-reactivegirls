@@ -10,6 +10,9 @@ class Collapsibles extends Component {
       >
         <ul className="list__bar-menu">
           <Design 
+            card = {this.props.card}
+            colorSelected={this.props.colorSelected}
+            typoSelected={this.props.typoSelected}
             designCollapsible={this.props.designCollapsible}
             handleCollapsibles={this.props.handleCollapsibles}
             hiddenDesign={this.props.hiddenDesign}

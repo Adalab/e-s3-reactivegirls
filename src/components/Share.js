@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
+
 import { cardSend } from './../services/CardService';
 
 class Share extends Component {
@@ -56,7 +58,7 @@ class Share extends Component {
                     <div className={`${hiddenClassT} share__twitter`}>
                         <div className="share__title">La tarjeta ha sido creada:</div>
                         <a className="twitter-share-button" href={this.state.linkTwitter}
-                            target="_blank">
+                            target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-twitter"></i>
                             <span className="twitter__text">
                                 Compartir en Twitter</span>
@@ -70,4 +72,10 @@ class Share extends Component {
         );
     }
 }
+
+Share.propTypes = {
+   
+    card: PropTypes.object,  
+      };
+
 export default Share;
