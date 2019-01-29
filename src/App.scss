@@ -9,11 +9,8 @@
 @import './styleSheets/_PPicture.scss';
 @import './styleSheets/_PContact.scss';
 @import './styleSheets/_PSkills.scss';
-@import './styleSheets/_CardViewer.scss';
-
-
-
 @import './styleSheets/_ButtonReset.scss';
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -46,19 +43,11 @@ ul {
   flex-direction: column;
 }
 
-/* .title__skills {
-  margin: 0;
-}
- */
-
-
 fieldset {
   border: 0;
   padding: 0;
   margin: 0;
 }
-
-
 
 .container__card-editor {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#bfcdd0), to(#dde9ed));
@@ -74,15 +63,24 @@ fieldset {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
 
+  @media all and (min-width: 768px) {
+      
+    grid-area: b;
+    height: 900px;
+    border-radius: 6px;
+    margin: 23px 40px 21px 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }  
+}
 
 .card__details {
   background-color: #ffffff;
   height: 367px;
   width: 240px;
 }
-
 
 .card__data {
   padding-left: 15px;
@@ -111,7 +109,6 @@ fieldset {
 .opacity {
   opacity: 0.3;
 }
-
 
 .footer {
   display: -webkit-box;
@@ -157,4 +154,3 @@ fieldset {
     padding: 10px 40px;
   }
 }
-

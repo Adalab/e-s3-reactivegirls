@@ -1,118 +1,116 @@
 .container__radio-input {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    padding-right: 20px;
-  }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
   
-  .radio__titles {
-    font-size: 14px;
-    color: #54585a;
-    font-family: "Open Sans", sans-serif;
-    text-transform: uppercase;
-    display: inline;
-  }
+.radio__titles {
+  font-size: 14px;
+  color: #54585a;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  display: inline;
+}
   
-  .card-main__icon {
-    color: #e17334;
-    font-size: 18px;
-  }
+.card-main__icon {
+  color: #e17334;
+  font-size: 18px;
+}
   
+.palet__color-squares {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 10px;
+}
   
-  .palet__color-squares {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-left: 10px;
-  }
+.input__label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
   
-  .input__label {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
+.radio__typo {
+  padding-top: 33px;
+}
   
-  .radio__typo {
-    padding-top: 33px;
-  }
+.radio__color {
+  padding-top: 25px;
+}
   
-  .radio__color {
-    padding-top: 25px;
-  }
+.color {
+  width: 30px;
+  height: 30px;
+}
   
-  .color {
-    width: 30px;
-    height: 30px;
-  }
+.color-1 {
+  background-color: #114e4e;
+}
   
-  .color-1 {
-    background-color: #114e4e;
-  }
+.color-2 {
+  background-color: #438792;
+}
   
-  .color-2 {
-    background-color: #438792;
-  }
+.color-3 {
+  background-color: #a2deaf;
+}
   
-  .color-3 {
-    background-color: #a2deaf;
-  }
+.color-4 {
+  background-color: #420101;
+}
   
-  .color-4 {
-    background-color: #420101;
-  }
+.color-5 {
+  background-color: #bd1010;
+}
   
-  .color-5 {
-    background-color: #bd1010;
-  }
+.color-6 {
+  background-color: #e95626;
+}
   
-  .color-6 {
-    background-color: #e95626;
-  }
+.color-7 {
+  background-color: #3e5b65;
+}
   
-  .color-7 {
-    background-color: #3e5b65;
-  }
+.color-8 {
+  background-color: #dfe5eb;
+}
   
-  .color-8 {
-    background-color: #dfe5eb;
-  }
+.color-9 {
+  background-color: #a0c0cf;
+}
   
-  .color-9 {
-    background-color: #a0c0cf;
-  }
+.option__font-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
   
-  .option__font-1 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
+.typo-1 {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+}
   
-  .typo-1 {
-    font-family: "Ubuntu", sans-serif;
-    font-size: 16px;
-  }
+.typo-2 {
+  font-family: "Comic Sans MS", "Chilanka", "Gaegu", sans-serif;
+  font-size: 16px;
+}
   
-  .typo-2 {
-    font-family: "Comic Sans MS", "Chilanka", "Gaegu", sans-serif;
-    font-size: 16px;
-  }
-  
-  .typo-3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-  }
-  
+.typo-3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
   

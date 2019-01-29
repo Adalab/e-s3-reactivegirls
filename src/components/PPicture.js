@@ -12,5 +12,6 @@ class PPicture extends Component {
 
 PPicture.propTypes = {
     img: PropTypes.string,  
-      };
+};
+
 export default PPicture;

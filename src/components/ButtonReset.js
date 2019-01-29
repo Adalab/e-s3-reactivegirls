@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class ButtonReset extends Component{
     render (){
         return(
@@ -14,4 +15,5 @@ class ButtonReset extends Component{
         );
     }
 }
+
 export default ButtonReset;

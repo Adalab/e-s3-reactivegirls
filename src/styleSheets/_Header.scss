@@ -1,35 +1,35 @@
 .card__header {
-    height: 111px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
+  height: 111px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
   
-  .editor__logo {
-    background: url('./images/logo-card.svg') center center no-repeat;
-    height: 51px;
-    width: 201px;
-    background-size: cover;
-  }
+.editor__logo {
+  background: url('./images/logo-card.svg') center center no-repeat;
+  height: 51px;
+  width: 201px;
+  background-size: cover;
+}
   
-  .logo__wild {
-    background: url('./images/logo.png') center center no-repeat;;
-    background-size: cover;
-    width: 130px;
-    height: 90px;
-  }
+.logo__wild {
+  background: url('./images/logo.png') center center no-repeat;;
+  background-size: cover;
+  width: 130px;
+  height: 90px;
+}
   
-  .tittle__hiden {
-    visibility: hidden;
-    width: 0px;
-    height: 0px;
-    margin: 0px;
-  }
+.tittle__hiden {
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+  margin: 0px;
+}

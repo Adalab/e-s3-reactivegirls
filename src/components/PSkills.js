@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 
 
-
 class PSkills extends Component {
 
     constructor(props){
         super(props);
-
         this.paintSkill = this.paintSkill.bind(this);
         this.visibility = this.visibility.bind(this);
     }
@@ -26,16 +24,13 @@ class PSkills extends Component {
     
     render(){
         let skillsList = (typeof this.props.skills !== 'undefined')? this.paintSkill() : '';
-
         return(
             <div className="list__card-skills">
-                        <ul className="card__skills">
-                            {skillsList}
-                        </ul>
-                    </div>
-            
+                <ul className="card__skills">
+                    {skillsList}
+                </ul>
+            </div>
         );
-
     }
 }
 
@@ -43,5 +38,6 @@ PSkills.propTypes = {
     hiddenS: PropTypes.bool, 
     skills: PropTypes.array, 
     paletteValue: PropTypes.number, 
-      };
+};
+
 export default PSkills;

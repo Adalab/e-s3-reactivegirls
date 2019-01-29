@@ -1,45 +1,45 @@
 .card__contact {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    list-style: none;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    margin: 0;
-    padding: 10px 20px;
-    border-bottom: 2px solid rgba(67, 135, 146, 0.2);
-    min-height: 32px;
-  }
-  .contact-icons {
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
-    font-size: 18px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-right: 10px;
-  }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 10px 20px;
+  border-bottom: 2px solid rgba(67, 135, 146, 0.2);
+  min-height: 32px;
+}
+
+.contact-icons {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 10px;
+}
   
-  .contact-icons__color1 {
-    color: #114e4e;
-    border: solid 2px #a2deaf;
-  }
+.contact-icons__color1 {
+  color: #114e4e;
+  border: solid 2px #a2deaf;
+}
   
-  .contact-icons__color2 {
-    color: #420101;
-    border: solid 2px #e95626;
-  }
+.contact-icons__color2 {
+  color: #420101;
+  border: solid 2px #e95626;
+}
   
-  .contact-icons__color3 {
-    color: #3e5b65;
-    border: solid 2px #a0c0cf;
-  }
-  
+.contact-icons__color3 {
+  color: #3e5b65;
+  border: solid 2px #a0c0cf;
+}
   

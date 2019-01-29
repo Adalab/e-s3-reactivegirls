@@ -1,60 +1,60 @@
-    .form__fieldset {
-      border-bottom: 1px solid #d8d8d8;
-      padding-bottom: 30px;
-    }
+.form__fieldset {
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 30px;
+}
 
-    .wrapper__bar-menu {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      padding: 10px 0 7px;
-      position: relative;
-    }
+.wrapper__bar-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px 0 7px;
+  position: relative;
+}
 
-    .tex__ico-bar {
-      color: #54585a;
-      font-family: "Open Sans", sans-serif;
-      font-size: 18px;
-      font-weight: 600;
-      text-transform: uppercase;
-      padding-left: 10px;
-    }
+.tex__ico-bar {
+  color: #54585a;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-left: 10px;
+}
     
-    .bar__menu-card {
-      cursor: pointer;
-    }
+.bar__menu-card {
+  cursor: pointer;
+}
     
-    .ico__arrow-menu {
-      color: #54585a;
-      font-size: 18px;
-      position: absolute;
-      right: 0;
-    }
+.ico__arrow-menu {
+  color: #54585a;
+  font-size: 18px;
+  position: absolute;
+  right: 0;
+}
     
-    .ico__arrow--reverse-up {
-      -webkit-animation-name: reverse-up;
-      animation-name: reverse-up;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-iteration-count: 1;
-      animation-iteration-count: 1;
-      -webkit-animation-fill-mode: forwards;
-      animation-fill-mode: forwards;
-    }
+.ico__arrow--reverse-up {
+  -webkit-animation-name: reverse-up;
+  animation-name: reverse-up;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
     
-    .ico__arrow--reverse-down {
-      -webkit-animation-name: reverse-down;
-      animation-name: reverse-down;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-iteration-count: 1;
-      animation-iteration-count: 1;
-      -webkit-animation-fill-mode: forwards;
-      animation-fill-mode: forwards;
-    }
+.ico__arrow--reverse-down {
+  -webkit-animation-name: reverse-down;
+  animation-name: reverse-down;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
 
 
 @-webkit-keyframes reverse-up {
@@ -104,6 +104,4 @@
     transform: rotate(0deg);
   }
 }
-
-    
-    
+   

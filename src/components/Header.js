@@ -6,7 +6,6 @@ class Header extends Component {
     render () {
         return (
             <header className="card__header"> 
-                
                 <Link to="/">
                     <div className="editor__logo">
                         <h1 className="tittle__hiden">Crea tu tarjeta de visita</h1>

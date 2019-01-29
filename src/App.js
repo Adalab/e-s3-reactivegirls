@@ -5,6 +5,8 @@ import Cards from './Cards';
 import './App.scss';
 import DefaultImage from './images/lobo.jpg';
 import {fetchSkills} from './services/GetSkills';
+
+
 const fr = new FileReader();
 
 class App extends Component {
@@ -25,7 +27,6 @@ class App extends Component {
       hiddenShare: true
     };
     
-
     this.cardData = React.createRef();
     this.fileInput = React.createRef();
     this.contactIcons = React.createRef();
@@ -50,7 +51,6 @@ class App extends Component {
     this.handleDesignCollapsibles = this.handleDesignCollapsibles.bind(this);
     this.handleShareCollapsibles = this.handleShareCollapsibles.bind(this);
     this.handleFillCollapsibles = this.handleFillCollapsibles.bind(this);
-
  }
  
   componentDidMount(){
@@ -58,7 +58,6 @@ class App extends Component {
       card: this.getLastSearch()
     });
     this.getSkillsApi();
-    
   }
 
   resetButton(){
@@ -74,17 +73,17 @@ class App extends Component {
       palette: 1,
       typography: 2
     }
-   this.setState({
-     card: resetCard,
-     hiddenE: true,
+    this.setState({
+      card: resetCard,
+      hiddenE: true,
       hiddenP: true,
       hiddenS: true,
       hiddenG: true,
       hiddenL: true
-      
    });
-   this.formReference.current.reset();
-   const resetStorage = {
+
+    this.formReference.current.reset();
+    const resetStorage = {
     name: "Nombre y apellidos",
     job: "Front end developer",
     email: "",
@@ -95,9 +94,9 @@ class App extends Component {
     skills:[],
     palette: 1,
     typography: 2
-   };
-   localStorage.setItem('backup', JSON.stringify(resetStorage));
-  
+    };
+
+    localStorage.setItem('backup', JSON.stringify(resetStorage));
   }
 
 
@@ -107,23 +106,22 @@ class App extends Component {
 
   getLastSearch(){
   const lastSearch = (localStorage.getItem('backup') !== null) ? JSON.parse(localStorage.getItem('backup')) : {
-      name: "Nombre y apellidos",
-      job: "Front end developer",
-      email: "",
-      phone: "",
-      photo: DefaultImage,
-      linkedin: "",
-      github:"",
-      skills:[],
-      palette: 1,
-      typography: 2
-    }
+    name: "Nombre y apellidos",
+    job: "Front end developer",
+    email: "",
+    phone: "",
+    photo: DefaultImage,
+    linkedin: "",
+    github:"",
+    skills:[],
+    palette: 1,
+    typography: 2
+  }
     return lastSearch;
   }
 
   //Name
   handleKeyUpN(event) {
-
     const {card} = this.state;
     const newCard = {...card, name: event.currentTarget.value};
 
@@ -186,6 +184,7 @@ class App extends Component {
     hiddenP: hiddenStatus  });
     this.saveLastSearch(newCard);
   }
+
   //GitHub
   handleKeyUpG(event) {
     const {card} = this.state;
@@ -197,6 +196,7 @@ class App extends Component {
     hiddenG: hiddenStatus });
     this.saveLastSearch(newCard);
   }
+
   //Linkedin
   handleKeyUpL(event) {
     const {card} = this.state;
@@ -236,7 +236,7 @@ class App extends Component {
         this.setState({
           skillsApi: data.skills
         } );
-      })
+    })
   }
 
    //Checking Only 3 Skills
@@ -295,10 +295,7 @@ class App extends Component {
     hiddenShare: hiddenStatus });
   }
   
-  
-
   render() {
-   
     return (
       <Switch>
         <Route exact path="/" component={Home}/>
@@ -355,7 +352,6 @@ class App extends Component {
                   />
                 } />
       </Switch>
-
     );
   }
 }

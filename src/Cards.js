@@ -3,13 +3,12 @@ import Header from './components/Header';
 import Collapsibles from './components/Collapsibles';
 import CardViewer from './components/CardViewer';
 import Footer from './components/Footer';
-
 import './App.scss';
+
 
 class Cards extends Component {
 
   render() {
-    
     return (
       <div>
         <Header />

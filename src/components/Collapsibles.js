@@ -3,11 +3,11 @@ import Design from './Design';
 import Fill from './Fill';
 import Share from './Share';
 
+
 class Collapsibles extends Component {
   render() {
     return (
-      <form action="" method="get" className="container__form" ref={this.props.formReference} 
-      >
+      <form action="" method="get" className="container__form" ref={this.props.formReference} >
         <ul className="list__bar-menu">
           <Design 
             card = {this.props.card}
@@ -24,8 +24,8 @@ class Collapsibles extends Component {
             
             cardData = {this.props.cardData}
             contactIcons ={this.props.contactIcons}
-            
-            />
+          />
+
           <Fill
             skillsApi={this.props.skillsApi}
             name={this.props.name}
@@ -51,10 +51,10 @@ class Collapsibles extends Component {
 
             handleFillCollapsibles = {this.props.handleFillCollapsibles}
             hiddenFill={this.props.hiddenFill}
-            />
+          />
+
           <Share
             card = {this.props.card}
-              
             handleShareCollapsibles = {this.props.handleShareCollapsibles}
             hiddenShare={this.props.hiddenShare}
           />
@@ -63,4 +63,5 @@ class Collapsibles extends Component {
     );
   }
 }
+
 export default Collapsibles;

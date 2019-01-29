@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logoAdalab from './../images/logo-adalab.png';
 
+
 class Footer extends Component {
     render () {
         return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
-
 import { cardSend } from './../services/CardService';
+
 
 class Share extends Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class Share extends Component {
             twitter: 'twitter',
             linkTwitter: '',
             linkCard: '',
-            hiddenT:true
+            hiddenT: true
         }
         this.handleShare = this.handleShare.bind(this);
     };
@@ -26,21 +26,21 @@ class Share extends Component {
             });
     }
 
-    twitterNotHidden(){
-        if(this.state.linkCard !== ''){
+    twitterNotHidden() {
+        if (this.state.linkCard !== '') {
             this.setState({
                 hiddenT: false
             });
         }
     }
 
-    visibility(){
+    visibility() {
         const hiddenClass = (this.props.hiddenShare === true) ? 'hidden' : 'NO-hidden';
         return hiddenClass;
     }
 
     render() {
-        const hiddenClassT = (this.state.hiddenT ===true) ?'twitter__hidden': 'NO-hidden';
+        const hiddenClassT = (this.state.hiddenT === true) ? 'twitter__hidden' : 'NO-hidden';
 
         return (
             <fieldset className="form__share form__fieldset">
@@ -73,9 +73,9 @@ class Share extends Component {
     }
 }
 
+
 Share.propTypes = {
-   
-    card: PropTypes.object,  
-      };
+    card: PropTypes.object,
+};
 
 export default Share;

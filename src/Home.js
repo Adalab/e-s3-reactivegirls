@@ -7,7 +7,6 @@ import './App.scss';
 
 class Home extends Component {
   render() {
-
     return (
       <div className="page" id="page">
         <div className="home__container">

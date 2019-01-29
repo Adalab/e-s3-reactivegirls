@@ -14,19 +14,16 @@
   justify-content: center;
   padding: 20px;
 
-@media all and (min-width: 768px) {
-  
- 
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 10px 40px;
-
-}
+  @media all and (min-width: 768px) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 10px 40px;
+  }
 }
 
 .footer__copyright {
@@ -42,5 +39,3 @@
   width: 103px;
   height: 40px;
 }
-
-

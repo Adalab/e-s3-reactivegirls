@@ -15,9 +15,6 @@ class PContact extends Component {
         const hiddenClassL = (this.props.hiddenL === true) ? 'hidden' : 'NO-hidden';
         const hiddenClassG = (this.props.hiddenG === true) ? 'hidden' : 'NO-hidden';
 
-
-
-
         return (
             <div className="list__card-contact">
                 <ul className="card__contact">
@@ -44,9 +41,9 @@ class PContact extends Component {
                 </ul>
             </div>
         );
-
     }
 }
+
 
 PContact.propTypes = {
     email: PropTypes.string,
@@ -59,4 +56,5 @@ PContact.propTypes = {
     hiddenG: PropTypes.bool.isRequired,
     paletteValue: PropTypes.number
 };
+
 export default PContact;
