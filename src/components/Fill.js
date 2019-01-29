@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
 
+
 class Fill extends Component {
 
     visibility(){
@@ -99,31 +100,24 @@ class Fill extends Component {
 };
 
 Fill.propTypes = {
-
-    handleKeyUpN: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
-    job: PropTypes.string.isRequired,
-    handleKeyUpJ: PropTypes.func.isRequired,
-    fileInput: PropTypes.object.isRequired,
-    handleChangeFile: PropTypes.func.isRequired,
-    fakeClick: PropTypes.func.isRequired,
-    img: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    handleKeyUpE: PropTypes.func.isRequired,
-    phone: PropTypes.string.isRequired,
-    handleKeyUpP: PropTypes.func.isRequired,
-    linkedin: PropTypes.string.isRequired,
-    handleKeyUpL: PropTypes.func.isRequired,
-    github: PropTypes.string.isRequired,
-    handleKeyUpG: PropTypes.func.isRequired,
-    addSkillorNot: PropTypes.func.isRequired
-    };
-
-
-
-
-
-
-
+    name: PropTypes.string,
+    job: PropTypes.string,
+    img: PropTypes.string,
+    skillsApi: PropTypes.array,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    github: PropTypes.string,
+    linkedin: PropTypes.string,
+    handleKeyUpN: PropTypes.func,
+    handleKeyUpJ: PropTypes.func,
+    fileInput: PropTypes.object,
+    handleChangeFile: PropTypes.func,
+    fakeClick: PropTypes.func,
+    handleKeyUpE: PropTypes.func,
+    handleKeyUpP: PropTypes.func,
+    handleKeyUpL: PropTypes.func,
+    handleKeyUpG: PropTypes.func,
+    addSkillorNot: PropTypes.func
+      };
 
 export default Fill;
